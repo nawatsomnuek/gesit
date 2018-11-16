@@ -84,41 +84,157 @@
         }
 
     </style>
+    <style>
+            .header_area {
+                                                color: #FFFFFF;
+                                                background-color:#4e555b;
+                                                left: 0;
+                                                position: fixed;
+                                                width: 100%;
+                                                z-index: 99;
+                                                top: 0;
+                                                padding: 0 4%;
+                                            }
+                                            .menu_area .navbar-brand {
+                                                font-size: 30px;
+                                                color: #fff;
+                                                /*margin: 0;*/
+                                                /*line-height: 1;*/
+                                                /*padding: 0;*/
+                                            }
+                                            .menu_area #nav .nav-link {
+                                                color: #fff;
+                                                /*display: block;*/
+                                                font-size: 16px;
+                                                font-weight: 500;
+                                                /*border-radius: 30px;*/
+                                                /*-webkit-transition-duration: 500ms;*/
+                                                /*-o-transition-duration: 500ms;*/
+                                                /*transition-duration: 500ms;*/
+                                                /*padding: 35px 15px;*/
+                                            }
+                                            .menu_area nav ul li > a:hover {
+                                                color: #fb397d;
+                                            }
+                                            .center {
+                                                text-align: center;
+                                               /* border: 3px opacity:30% gray ;*/
+                                                padding-bottom: 20px;
+                                            }
+                                            .enter{
+                                                left:0;
+                                                position: fixed; 
+                                                bottom: 0%;
+                                                text-align: center;
+                                                width: 100%;
+                                                background-color: white;
+                                                padding-bottom:10px; 
+                                                padding-top:10px;
+                                            }
+                                            .buttom3{
+                                                width: 10%;
+                                                float: right;
+                                                width:20%;
+                                                opacity:0.6;
+                                                transition:0.3s;    
+                                            }
+                                            .buttom3:hover{
+                                                opacity:1;
+                                                box-shadow:0 12px 12px 0 rgba(0,0,0,0.24), 0 19px 50px 0 rgba(0,0,0,0.19);
+                                            }
+                                            .dee {
+                                                margin-left: 20 px;
+                                            }
+                                            .dropdown .dropbtn {
+                                                font-size: 16px;    
+                                                border: none;
+                                                outline: none;
+                                                color: white;
+                                                padding: 14px 16px;
+                                                background-color: inherit;
+                                                font-family: inherit;
+                                                margin: 0;
+                                            }
+                                            
+                                            .navbar a:hover, .dropdown:hover .dropbtn {
+                                                background-color:slateblue;
+                                            }
+                                            
+                                            .dropdown-content {
+                                                display: none;
+                                                position: absolute;
+                                                background-color: #f9f9f9;
+                                                min-width: 160px;
+                                                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                                z-index: 1;
+                                            }
+                                            
+                                            .dropdown-content a {
+                                                float: none;
+                                                color: black;
+                                                padding: 12px 16px;
+                                                text-decoration: none;
+                                                display: block;
+                                                text-align: left;
+                                            }
+                                            
+                                            .dropdown-content a:hover {
+                                                background-color: #ddd;
+                                            }
+                                            
+                                            .dropdown:hover .dropdown-content {
+                                                display: block;
+                                            }
+                                </style>
 
 <body>
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-10 col-lg-10">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <!-- Logo -->
-                    <a class="navbar-brand" href="#">GESIT</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
-                        aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <!-- Menu Area -->
-                    <div class="collapse navbar-collapse" id="ca-navbar">
-                        <ul class="navbar-nav ml-auto " id="nav">
-                            <li class="nav-item active"><a class="nav-link" href="/Home/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="TallSoneY55.html">visualization</a></li>
-                            <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
-                            <li class="nav-item"><a class="nav-link" href="">relation</a></li>
-                        </ul>
+        <header class="header_area animated">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Menu Area Start -->
+                        <div class="col-10 col-lg-10">
+                            <div class="menu_area">
+                                <nav class="navbar navbar-expand-lg navbar-light">
+                                    <!-- Logo -->
+                                    <a class="navbar-brand" href="/Home/">GESIT</a>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Gesit-navbar"
+                                        aria-controls="Gesit-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                            class="navbar-toggler-icon"></span></button>
+                                    <!-- Menu Area -->
+                                    <div class="collapse navbar-collapse" id="ca-navbar">
+                                        <ul class="navbar-nav ml-auto" id="nav">
+                                            <li class="nav-item active"><a class="nav-link" href="/student">Home Student</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/historysGradeToPredict">Prediction</a></li>
+                                            <!-- <li class="nav-item"><a class="nav-link" href="#">Relation</a></li> -->
+                                            {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                                            {% endcomment %}
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Signup btn -->
+                        <div class="col-2 col-lg-2">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    {% if username != None %}
+                                    {{username}}
+                                    {% else %}
+                                    Hello
+                                    {% endif %}
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#">profile</a>
+                                    <!-- <div class="dropdown-divider"></div> -->
+                                    <a href="/logout">log out</a>
+                                    <!-- <a href="#"></a> -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </nav>
-            </div>
-            <div class="col-12 col-lg-2">
-                <!--<div class="sing-up-button d-none d-lg-block">-->
-                <a href="#">
-                    {% if username != None %}
-                    {{username}}
-                    {% else %}
-                    Login
-                    {% endif %}</a>
-                <!--</div>-->
-            </div>
-        </div>
-    </div>
+                </div>
+            </header>
     <h1 style="text-align:center">Historys Grade</h1> <br>
 
     <form action="" method="POST">

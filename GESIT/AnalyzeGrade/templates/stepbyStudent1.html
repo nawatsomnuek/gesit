@@ -122,9 +122,9 @@
         }
 
         .our-services-text {
-            padding-right: 10px;
+            /*padding-right: 10px;*/
             overflow: hidden;
-            padding: 28px 0 25px;
+            padding: 28px 13px 25px;
         }
 
         .our-services-text h4 {
@@ -310,134 +310,7 @@
             background-color: #5bc0de;
         }
 
-        ----------------------Predictgrade---------------------------- @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css') .grid-container {
-            display: grid;
-            grid-template-columns: auto;
-        }
-
-        .grid-item {
-            padding: 5px;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .searchable-container {
-            margin: 20px 0 0 0
-        }
-
-        .searchable-container label.btn-default.active {
-            background-color: #007ba7;
-            color: #FFF
-        }
-
-        .searchable-container label.btn-default {
-            width: 90%;
-            border: 1px solid #efefef;
-            margin: 5px;
-            box-shadow: 5px 8px 8px 0 #ccc;
-        }
-
-        .searchable-container label .bizcontent {
-            width: 100%;
-        }
-
-        .searchable-container .btn-group {
-            width: 90%
-        }
-
-        .searchable-container .btn span.glyphicon {
-            opacity: 0;
-        }
-
-        .searchable-container .btn.active span.glyphicon {
-            opacity: 1;
-        }
-
-        .funkyradio div {
-            clear: both;
-            overflow: hidden;
-            padding-right: 30px;
-        }
-
-        .funkyradio {
-            display: grid;
-            grid-template-columns: auto auto auto;
-        }
-
-        .funkyradio label {
-            width: 100%;
-            border-radius: 3px;
-            border: 1px solid #D1D3D4;
-            font-weight: normal;
-            padding: 15px;
-        }
-
-        .funkyradio input[type="radio"]:empty,
-        .funkyradio input[type="checkbox"]:empty {
-            display: none;
-        }
-
-        .funkyradio input[type="radio"]:empty~label,
-        .funkyradio input[type="checkbox"]:empty~label {
-            position: relative;
-            line-height: 2.5em;
-            text-indent: 3.25em;
-            margin-top: 15px;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .funkyradio input[type="radio"]:empty~label:before,
-        .funkyradio input[type="checkbox"]:empty~label:before {
-            position: absolute;
-            display: block;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            content: '';
-            width: 2.5em;
-            background: #D1D3D4;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .funkyradio input[type="radio"]:hover:not(:checked)~label,
-        .funkyradio input[type="checkbox"]:hover:not(:checked)~label {
-            color: #888;
-        }
-
-        .funkyradio input[type="radio"]:hover:not(:checked)~label:before,
-        .funkyradio input[type="checkbox"]:hover:not(:checked)~label:before {
-            content: '\2714';
-            text-indent: .9em;
-            color: #C2C2C2;
-        }
-
-        .funkyradio input[type="radio"]:checked~label,
-        .funkyradio input[type="checkbox"]:checked~label {
-            color: #777;
-        }
-
-        .funkyradio input[type="radio"]:checked~label:before,
-        .funkyradio input[type="checkbox"]:checked~label:before {
-            content: '\2714';
-            text-indent: .9em;
-            color: #333;
-            background-color: #ccc;
-        }
-
-        .funkyradio input[type="radio"]:focus~label:before,
-        .funkyradio input[type="checkbox"]:focus~label:before {
-            box-shadow: 0 0 0 3px #999;
-        }
-
-        .funkyradio-info input[type="radio"]:checked~label:before,
-        .funkyradio-info input[type="checkbox"]:checked~label:before {
-            color: #fff;
-            background-color: #5bc0de;
-        }
+        
     </style>
 
 
@@ -599,6 +472,9 @@
                 position: relative;
                 top: 95px;
             }
+        .moveright{
+            float:right; 
+        }    
 </style>
 
 <body>
@@ -681,7 +557,7 @@
                         <div class="clearfix">&nbsp;</div>
 
                         <div class="res-step-form col-md-12 res-form-one">
-                            <h1 class="text-center">History Grade &amp; Description 1</h3>
+                            <h1 class="text-center">step1 &amp; History Grade</h3>
                                 <form class="form-horizontal" action="/delectSubject" method="POST">
                                     <div class="form-group">
                                         <div class="container">
@@ -698,15 +574,17 @@
                                                             <div class="our-services-text">
                                                                 <!-- <div style=" float:right; padding-right:11px;"> -->
 
-                                                                <button onclick="if (confirm('Do you want to delect?')) commentDelete(1); return false"
+                                                                <button class ="moveright "onclick="if (confirm('Do you want to delect?')) commentDelete(1); return false"
                                                                     name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" value="delete">
-                                                                    <p id="but"></p><i class="fa fa-trash-o"></i></p>
+                                                                    <p id="but" ><i class="fa fa-trash-o" ></i></p>
                                                                 </button>
 
                                                                 <!-- </div> -->
-                                                                <button value="edit" name="{{result.subjectNumber}}" id="{{result.subjectNumber}}">
-                                                                <i class="fa fa-pencil" style=" float:right; padding-right:12px;"></i>
+                                                                <button class ="moveright" value="edit" name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" >
+                                                                <p><i class="fa fa-pencil" ></i></p>
                                                                 </button>
+                                                                <p style="float:left; clear: right;"></p>
+                                                                <br>
                                                                 <h4>{{result.subjectNumber}}</h4>
                                                                 <p>Subject : {{result.subjectName}}</p>
                                                                 <p>Credit : {{result.credit}} </p>
@@ -742,8 +620,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="text-center">
-                                            <a href="Home_student.html"><button class="btn btn-primary">
-                                                    < Back</button> </a> <a href="/historysGradeToPredict/chooseSubjectAsPredict">
+                                            <a href="/student"><input type="button" class="btn btn-primary" value="< Back"></a> 
+                                            <a href="/historysGradeToPredict/chooseSubjectAsPredict">
                                                         <button type="button" class="btn btn-default col-xs-offset-1 btn ">Next</button>
                                             </a>
                                         </div>
