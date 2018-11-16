@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>Graph</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+</head>
+
+<body>
+  {% for data in data %}
+  <p>{{ data }}</p>
+  {% endfor %}
+  <canvas id="myChart" width="-5" height="-5"></canvas>
+  <script>
+    var labels = {{ labels | safe }}
+    var dataFromPy = {{ data | safe }}
+    var ctx = document.getElementById("myChart");
+    console.log(dataFromPy)
+    let dataArray = []
+    for (i = 0; i <= dataFromPy.length - 1; i++) {
+      num = i + 1
+      color = [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ]
+      dataArrayy = {
+        label: 'Group: ' + num,
+        data: dataFromPy[i],
+        backgroundColor: color[i],
+        borderWidth: 1
+      }
+      dataArray.push(dataArrayy)
+    }
+    console.log(dataArray)
+    var myChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: labels,
+        datasets: dataArray
+      },
+    });    
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    {% load static %}
+    <link rel="icon" href="img/core-img/favicon.ico">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <style>
+        .login{
+            padding-left: 5%;
+            color: ;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;    
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color:slateblue;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="preloader">
+        <div class="colorlib-load"></div>
+    </div>
+
+    <header class="header_area animated">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-- Menu Area Start -->
+                <div class="col-12 col-lg-10">
+                    <div class="menu_area">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="#">GESIT</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
+                                aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                    class="navbar-toggler-icon"></span></button>
+                            <!-- Menu Area -->
+                            <div class="collapse navbar-collapse" id="ca-navbar">
+                                <ul class="navbar-nav ml-auto" id="nav">
+                                    <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                                    <!--<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>-->
+                                    {% if username != None and userType == 'lecturer' %}
+                                    <li class="nav-item"><a class="nav-link" href="/lecturer">Lecturer</a></li>
+                                    {% endif %}
+                                    {% if username != None and userType == 'student' %}
+                                    <li class="nav-item"><a class="nav-link" href="/student">Student</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Signup btn -->
+                <div class="col-2 col-lg-2">
+                    {% if username != None %}
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            {{username}}
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        
+                        <div class="dropdown-content">
+                            {% if userType == 'student' %}
+                            <a href="/profile">profile</a>
+                            {% endif %}
+                            <!-- <div class="dropdown-divider"></div> -->
+                            <a href="/logout">log out</a>
+                            <!-- <a href="#"></a> -->
+                        </div>
+                        
+                    </div>
+                    {% else %}
+                    <div class="sing-up-button d-none d-lg-block">
+                        <a href="/login">log In</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Wellcome Area Start ***** -->
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <h2>Grade Analysis</h2>
+                        <h3>C</h3>
+                        <p>grade can analyze capability.</p>
+                    </div>
+                    <div class="get-start-area">
+                        <!-- Form Start -->
+                        <form action="#" method="post" class="form-inline">
+                            <!--<input type="username" class="form-control email" placeholder="รหัส@kmutt.ac.th">-->
+                            <!--<input type="password" class="form-control password" >-->
+                            <!--<input type="submit" class="submit" value="Get Started">-->
+                        </form>
+                        <!-- Form End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Welcome thumb -->
+        <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.4s">
+            <!--<img src="img/bg-img/welcome-img.png" alt="">-->
+        </div>
+    </section>
+    <!-- ***** Wellcome Area End ***** -->
+
+    <!-- ***** Special Area Start ***** -->
+    <section class="special-area bg-white section_padding_100" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading Area -->
+                    <div class="section-heading text-center">
+                        <h2>Special</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Special Area -->
+                <div class="col-12 col-md-4">
+                    <div class="single-special text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="single-icon">
+                            <i class="ti-mobile" aria-hidden="true"></i>
+                        </div>
+                        <h4>Easy to use</h4>
+                        <p>We build pretty complex tools and turn them into functional quickly and step by step</p>
+                    </div>
+                </div>
+                <!-- Single Special Area -->
+                <div class="col-12 col-md-4">
+                    <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="single-icon">
+                            <i class="ti-ruler-pencil" aria-hidden="true"></i>
+                        </div>
+                        <h4>Good Profermance</h4>
+                        <p>We build tool which analyse grade and subject relation</p>
+                    </div>
+                </div>
+                <!-- Single Special Area -->
+                <div class="col-12 col-md-4">
+                    <div class="single-special text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="single-icon">
+                            <i class="ti-settings" aria-hidden="true"></i>
+                        </div>
+                        <h4>Customizability</h4>
+                        <p>It can analyse grade that compute person by person.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ***** Awesome Features Start ***** -->
+    <section class="awesome-feature-area bg-white section_padding_0_50 clearfix" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Heading Text -->
+                    <div class="section-heading text-center">
+                        <h2>Features</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-feature">
+                        <i class="ti-user" aria-hidden="true"></i>
+                        <h5>Visualization</h5>
+                        <p>Show grade after analyse </p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-feature">
+                        <i class="ti-pulse" aria-hidden="true"></i>
+                        <h5>Predit Grade</h5>
+                        <p>Predict grade in the next semester</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-feature">
+                        <i class="ti-dashboard" aria-hidden="true"></i>
+                        <h5>Show Subject Relation</h5>
+                        <p>Show relation other subject that affect this subject</p>
+                    </div>
+                </div>
+                <!-- <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-feature">
+                        <i class="ti-palette" aria-hidden="true"></i>
+                        <h5>History Predict Grade</h5>
+                        <p>--------------------------</p>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+    </section>
+    <!-- ***** Awesome Features End ***** -->
+
+    <!-- ***** Our Team Area Start ***** -->
+    <section class="our-Team-area bg-white section_padding_100_50 clearfix" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- Heading Text  -->
+                    <div class="section-heading">
+                        <h2>Our Team</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="single-team-member">
+                        <div class="member-image">
+                            <img src="img/team-img/team-1.jpg" alt="">
+                            ......................
+                        </div>
+                        <div class="member-text">
+                            <h4>Nawat Somnuck</h4>
+                            <p>programer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="single-team-member">
+                        <div class="member-image">
+                            <img src="img/team-img/team-2.jpg" alt="">
+                            ............................
+                        </div>
+                        <div class="member-text">
+                            <h4>Nutthamon Wongakararoj</h4>
+                            <p>Design </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="single-team-member">
+                        <div class="member-image">
+                            <img src="img/team-img/team-3.jpg" alt="">
+                            ...................................
+                        </div>
+                        <div class="member-text">
+                            <h4>Malika krapaotong</h4>
+                            <p>Programer and design</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ***** Our Team Area End ***** -->
+
+    <!-- ***** Contact Us Area Start ***** -->
+    {% comment %} <section class="footer-contact-area section_padding_100 clearfix" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Heading Text  -->
+                    <div class="section-heading">
+                        <h2>Contact with us!</h2>
+                        <div class="line-shape"></div>
+                    </div>
+                    <div class="footer-text">
+                        <p>We'll send you epic weekly blogs, whitepapers and things to make your app startup thrive</p>
+                    </div>
+                    <div class="address-text">
+                        <p><span>Address:</span> Kmutt Bangmod</p>
+                    </div>
+                    <div class="phone-text">
+                        <p><span>Phone:</span> +11-441-3215</p>
+                    </div>
+                    <div class="email-text">
+                        <p><span>Email:</span> Gesit.creative@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Form Start-->
+                    <div class="contact_from">
+                        <form action="#" method="post">
+                            <!-- Message Input Area Start -->
+                            <div class="contact_input_area">
+                                <div class="row">
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Your Name"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" id="email"
+                                                placeholder="Your E-mail" required>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea name="message" class="form-control" id="message" cols="30" rows="4"
+                                                placeholder="Your Message *" required></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Single Input Area Start -->
+                                    <div class="col-12">
+                                        <button type="submit" class="btn submit-btn">Send Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Message Input Area End -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+
+    <footer class="footer-social-icon text-center section_padding_5 clearfix">
+        <div class="copyright-text">
+            <p> <a href="https://colorlib.com" target="_blank"></a></p>
+        </div>
+    </footer>
+    {% load static %}
+    <!-- Jquery-2.2.4 JS -->
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap-4 Beta JS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- All Plugins JS -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Slick Slider Js-->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- Footer Reveal JS -->
+    <script src="{% static 'js/footer-reveal.min.js' %}"></script>
+    <!-- Active JS -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

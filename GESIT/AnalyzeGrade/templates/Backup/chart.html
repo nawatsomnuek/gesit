@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <form action="" method="POST">
+        {% comment %} <input type="checkbox" value="INT101" name="INT101" /> INT101 <br>
+        <input type="checkbox" value="INT102" name="INT102" /> INT102 <br>
+        <input type="checkbox" value="INT103" name="INT103" /> INT103 {% endcomment %}
+        {% comment %} {% csrf_token %}
+        {{ form }} {% endcomment %}
+        {% for result in subjects %}
+        <div>
+
+            {{result.subjectNumber}} <br>
+            {{result.subjectName}}
+            <p class="lead"><input id="{{result.subjectNumber}}" type="checkbox" name="{{result.subjectNumber}}" value="{{result.subjectNumber}}">
+                choose
+        </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

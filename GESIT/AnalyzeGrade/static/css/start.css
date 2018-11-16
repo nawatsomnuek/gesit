@@ -1,0 +1,38 @@
+body {
+    background: url() no-repeat fixed;
+    background-size: 100% 100%;
+    background-image: -moz-repeating-linear-gradient("img/banner-onfront02_03.jpg")
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+#test {
+    color: white;
+    font-family: serif;
+}
+
+#test h1 {
+    margin-top: 100px;
+    font-size: 8em;
+}
+
+#test h2 {
+    font-size: 2em;
+}
+
+#test a {
+    color: white;
+    padding: 5px;
+    border: 2px solid white;
+    text-decoration: none;
+}
+
+#test h2 a:hover {
+    color: #FF7A85;
+}

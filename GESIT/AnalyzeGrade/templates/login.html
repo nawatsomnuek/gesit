@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+
+    {% load static %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+</head>
+
+<body id="LoginForm">
+    <div class="container">
+        <a href="/Home/"> <h1 class="form-heading">GESIT</h1> </a>
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Admin Login</h2>
+                    <p>Please enter your username and password</p>
+                </div>
+                {% comment %} <form id="login" name="form1" method="post" action="Home_lecturer" target="_self">\ {% endcomment %}
+                        <form id="login" name="form1" method="POST" action="/loginn" onSubmit="JavaScript:return fncSubmit();" target="_self">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                            </div>
+    
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                            </div>
+                               
+                            <p>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            </p> 
+                            <a href="/register">
+                            <button type="button" class="btn btn-primary">Register</button>
+                            </a>
+    
+                        </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script language="javascript">
+        function fncSubmit(){
+            if(document.form1.username.value == ""){
+                 alert('Please input username');
+                 document.form1.username.focus();
+                return false;
+             }  
+            if(document.form1.password.value == ""){
+                alert('Please input password');
+                document.form1.password.focus();       
+                return false;
+            }  
+        document.form1.submit();
+        }
+        </script>
+</html>

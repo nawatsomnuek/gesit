@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Historys Grade</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+        .grid-item {
+            padding: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .mb-60 {
+            margin-bottom: 60px;
+        }
+        .services-inner {
+            border: 2px solid #B0C4DE;
+            margin-left: 35px;
+            transition: .3s;
+        }
+        .our-services-img {
+            float: left;
+            margin-left: -36px;
+            margin-right: 22px;
+            margin-top: 28px;
+        }
+        .our-services-text {
+            padding-right: 10px;
+            overflow: hidden;
+            padding: 28px 0 25px;
+        }
+        .our-services-text h4 {
+            color: #222222;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            padding-bottom: 10px;
+            position: relative;
+            text-transform: uppercase;
+        }
+        .our-services-text h4::before {
+            background: #ec6d48 none repeat scroll 0 0;
+            bottom: 0;
+            content: "";
+            height: 1px;
+            position: absolute;
+            width: 35px;
+        }
+        .our-services-wrapper:hover .services-inner {
+            background: #fff none repeat scroll 0 0;
+            border: 2px solid transparent;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+        .our-services-text p {
+            margin-bottom: 0;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 26px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .btn-glyphicon {
+            justify-content: center;
+            align-items: center;
+            padding:4px; /*ปรับ ขีดๆ Add*/
+            background:#ffffff;
+            margin-right:4px;}
+
+        .icon-btn {
+            padding: 1px 15px 3px 2px;
+            border-radius:50px;
+        }
+
+    </style>
+
+<body>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-10 col-lg-10">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">GESIT</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
+                        aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Menu Area -->
+                    <div class="collapse navbar-collapse" id="ca-navbar">
+                        <ul class="navbar-nav ml-auto " id="nav">
+                            <li class="nav-item active"><a class="nav-link" href="/Home/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="TallSoneY55.html">visualization</a></li>
+                            <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">relation</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12 col-lg-2">
+                <!--<div class="sing-up-button d-none d-lg-block">-->
+                <a href="#">
+                    {% if username != None %}
+                    {{username}}
+                    {% else %}
+                    Login
+                    {% endif %}</a>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <h1 style="text-align:center">Historys Grade</h1> <br>
+
+    <div class="container">
+        <div class="row">
+            {% for result in datas %}
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="our-services-wrapper mb-60">
+                    
+                    <div class="services-inner">
+                          
+                        <div class="our-services-img">
+                            <img src="https://image.flaticon.com/icons/svg/1055/1055644.svg" width="68px" alt="">
+                        </div>
+                        <div class="our-services-text">
+                            <h4>{{result.subjectNumber}}</h4>
+                            <p>Subject : {{result.subjectName}}</p>
+                            <p>Credit : {{result.credit}} </p>
+                            <p>Grade : {{result.grade}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="our-services-wrapper mb-60">
+                    <div class="services-inner">
+                        <div class="our-services-img">
+                            <img src="https://image.flaticon.com/icons/svg/1055/1055644.svg" width="68px" alt="">
+                        </div>
+                        <div class="our-services-text">
+                            <div class="container">
+                                <a class="btn icon-btn btn-success" href="/historysGradeToPredict/chooseSubjectAsPredict">
+                                    <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+                                    Add
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item">
+                <a href="/historysGradeToPredict/chooseSubjectAsPredict"><button class="btn btn-primary">
+                        Next></button> </a> </div> </div> </div> </body> </html>

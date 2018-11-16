@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>Choose Subjects</title>
+</head>
+<style type="text/css">
+        .grid-item {
+            padding: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+	table{
+    font-family:'Calibri';
+    font-size:15px;
+    background-color:#fff;
+    color:#333;
+}
+.modal-header{
+    background-color:#333;
+    color:#fff;
+}
+</style>
+<body>
+<div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-10 col-lg-10">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="#">GESIT</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
+                                    aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <!-- Menu Area -->
+                            <div class="collapse navbar-collapse" id="ca-navbar">
+                                <ul class="navbar-nav ml-auto " id="nav">
+                                    <li class="nav-item active"><a class="nav-link" href="Home.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="TallSoneY55.html">visualization</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="">relation</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <!--<div class="sing-up-button d-none d-lg-block">-->
+                        <a href="#">manee</a>
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+<div class="container">
+	<h2 style="text-align: center;">History Predict</h2>
+                        <!--Table-->
+            <table class="w3-table w3-striped">
+		    <thead>
+		        <tr>
+		            <th>ID</th>
+		            <th>Subject</th>
+		            <th>Credit</th>
+		            <th>Predict</th>
+		            <th>Delete</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr id="d1">
+		            <td>INT101</td>
+		            <td id="f1">IT Fun</td>
+		            <td id="l1">3</td>
+		            <td id="m1">B+</td>
+		            <td><button type="button" data-toggle="modal" data-target="#delete" data-uid="1" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>
+		        </tr>
+		        <tr id="d2">
+		            <td>INT107</td>
+		            <td id="f2">Platform</td>
+		            <td id="l2">3</td>
+		            <td id="m2">A</td>
+		            <td><button type="button" data-toggle="modal" data-target="#delete" data-uid="2" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>
+		        </tr>
+		        <tr id="d2">
+		            <td>INT401</td>
+		            <td id="f2">Secure</td>
+		            <td id="l2">3</td>
+		            <td id="m2">C+</td>
+		            <td><button type="button" data-toggle="modal" data-target="#delete" data-uid="2" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>
+		        </tr>
+		    </tbody>
+		</table>
+	            <div class="grid-container">
+                <div class="grid-item">
+                    <a href="Home_student.html"><button class="btn btn-primary">< Back</button></a>
+                    <button class="btn btn-success" type="Submit" form="Grade" value="Submit"> Submit</button>
+                </div>
+            </div>
+
+</div>
+<div id="edit" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title">Update Data</h4>
+      </div>
+      <div class="modal-body">
+           <input id="fn" type="text" class="form-control" name="fname" placeholder="First Name">
+           <input id="ln" type="text" class="form-control" name="fname" placeholder="Last Name">
+           <input id="mn" type="text" class="form-control" name="fname" placeholder="Middle Name">
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="up" class="btn btn-warning" data-dismiss="modal">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="delete" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title">Delete Data</h4>
+      </div>
+      <div class="modal-body">
+        <strong>Are you sure you want to delete this data?</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="del" class="btn btn-danger" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

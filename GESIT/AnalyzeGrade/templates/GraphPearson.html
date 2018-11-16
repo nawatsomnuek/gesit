@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>step by teacher 1</title>
+    <meta name="description" content="">.
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">.
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">.
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>.
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  <script src="\static\js\step.js"  type="text/javascript" charset="utf-8"></script> -->
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link href="{% static 'css/Home_lecturer.css' %}" rel="stylesheet">
+    <style type="text/css">
+        /* <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="{% static '.../.../.../ca-colorlib/js/RadarChart.js' %}"></script>
+    <script type="text/javascript" src="{% static '.../.../.../ca-colorlib/js/scriptss.js' %}"></script>
+    <link href="{% static 'css/GraphallSoneY.css' %}" rel="stylesheet">*/
+        body {
+            overflow-x: hidden;
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps {
+            width: 33%;
+            text-align: center;
+            float: left;
+            cursor: pointer
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps .res-step-bar {
+            -webkit-border-radius: 50% !important;
+            -moz-border-radius: 50% !important;
+            -ms-border-radius: 50% !important;
+            border-radius: 50% !important;
+            background: #0aa7e1;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            margin-top: 10px;
+            text-align: center;
+            color: #fff;
+            padding-top: 7px;
+            font-size: 20px
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps .res-progress-title {
+            text-align: center;
+            font-size: 15px;
+            padding-top: 10px;
+            display: block
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps .res-progress-bar {
+            height: 5px;
+            background: #0aa7e1;
+            width: 50%;
+            margin: -22px 0 0 50%;
+            float: left
+        }
+
+        #employer-post-new-job .res-steps-container .res-step-two .res-progress-bar,
+        #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar {
+            width: 100%;
+            margin-left: 0%
+        }
+
+        #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar {
+            width: 50%;
+            margin-right: 50%
+        }
+
+        #employer-post-new-job .res-step-form {
+            border: 1px solid #d2d2d2;
+            box-shadow: 0px 6px 4px -2px silver;
+            position: absolute
+        }
+
+        #employer-post-new-job .res-step-form h1 {
+            margin: 10px 0;
+            color: #0aa7e1;
+            font-size: 18px
+        }
+
+        #employer-post-new-job .res-step-form .form-horizontal label {
+            font-weight: normal
+        }
+
+        #employer-post-new-job .res-form-two,
+        #employer-post-new-job .res-form-three,
+        #employer-post-new-job .res-form-four {
+            left: 150%
+        }
+
+        #employer-post-new-job .active .res-step-bar {
+            background: #f19b20 !important
+        }
+
+        #employer-post-new-job .active .res-progress-title {
+            color: #0aa7e1
+        }
+
+        ------------------headerNav bar------------------ .header_area {
+            color: #FFFFFF;
+            background-color: #4e555b;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+            top: 0;
+            padding: 0 4%;
+        }
+
+        .menu_area .navbar-brand {
+            font-size: 30px;
+            color: #fff;
+            /*margin: 0;*/
+            /*line-height: 1;*/
+            /*padding: 0;*/
+        }
+
+        .menu_area #nav .nav-link {
+            color: #fff;
+            /*display: block;*/
+            font-size: 16px;
+            font-weight: 500;
+            /*border-radius: 30px;*/
+            /*-webkit-transition-duration: 500ms;*/
+            /*-o-transition-duration: 500ms;*/
+            /*transition-duration: 500ms;*/
+            /*padding: 35px 15px;*/
+        }
+
+        .menu_area nav ul li>a:hover {
+            color: #fb397d;
+        }
+
+        .center {
+            text-align: center;
+            /* border: 3px opacity:30% gray ;*/
+            padding-bottom: 20px;
+        }
+
+        .enter {
+            left: 0;
+            position: fixed;
+            bottom: 0%;
+            text-align: center;
+            width: 100%;
+            background-color: white;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .buttom3 {
+            width: 10%;
+            float: right;
+            width: 20%;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .buttom3:hover {
+            opacity: 1;
+            box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.24), 0 19px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .dee {
+            margin-left: 20 px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: slateblue;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            position: relative;
+            top: 95px;
+        }
+
+        ---------------Show graphPearson----------------- .acc {
+            width: 60%;
+            height: 60%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <style>
+        .btn-container {
+            display: inline-block;
+            overflow: hidden;
+           /* justify-content: center;
+            align-items: center;*/
+            position:relative;
+            margin-top: 100px;
+            left:50%;
+            transform:translate(-50%,-50%);
+            padding:10px 30px;
+
+        }
+        .header_area {
+                                            color: #FFFFFF;
+                                            background-color:#4e555b;
+                                            left: 0;
+                                            position: fixed;
+                                            width: 100%;
+                                            z-index: 99;
+                                            top: 0;
+                                            padding: 0 4%;
+                                        }
+                                        .menu_area .navbar-brand {
+                                            font-size: 30px;
+                                            color: #fff;
+                                            /*margin: 0;*/
+                                            /*line-height: 1;*/
+                                            /*padding: 0;*/
+                                        }
+                                        .menu_area #nav .nav-link {
+                                            color: #fff;
+                                            /*display: block;*/
+                                            font-size: 16px;
+                                            font-weight: 500;
+                                            /*border-radius: 30px;*/
+                                            /*-webkit-transition-duration: 500ms;*/
+                                            /*-o-transition-duration: 500ms;*/
+                                            /*transition-duration: 500ms;*/
+                                            /*padding: 35px 15px;*/
+                                        }
+                                        .menu_area nav ul li > a:hover {
+                                            color: #fb397d;
+                                        }
+                                        .center {
+                                            text-align: center;
+                                           /* border: 3px opacity:30% gray ;*/
+                                            padding-bottom: 20px;
+                                        }
+                                        .enter{
+                                            left:0;
+                                            position: fixed; 
+                                            bottom: 0%;
+                                            text-align: center;
+                                            width: 100%;
+                                            background-color: white;
+                                            padding-bottom:10px; 
+                                            padding-top:10px;
+                                        }
+                                        .buttom3{
+                                            width: 10%;
+                                            float: right;
+                                            width:20%;
+                                            opacity:0.6;
+                                            transition:0.3s;    
+                                        }
+                                        .buttom3:hover{
+                                            opacity:1;
+                                            box-shadow:0 12px 12px 0 rgba(0,0,0,0.24), 0 19px 50px 0 rgba(0,0,0,0.19);
+                                        }
+                                        .dee {
+                                            margin-left: 20 px;
+                                        }
+                                        .dropdown .dropbtn {
+                                            font-size: 16px;    
+                                            border: none;
+                                            outline: none;
+                                            color: white;
+                                            padding: 14px 16px;
+                                            background-color: inherit;
+                                            font-family: inherit;
+                                            margin: 0;
+                                        }
+                                        
+                                        .navbar a:hover, .dropdown:hover .dropbtn {
+                                            background-color:slateblue;
+                                        }
+                                        
+                                        .dropdown-content {
+                                            display: none;
+                                            position: absolute;
+                                            background-color: #f9f9f9;
+                                            min-width: 160px;
+                                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                            z-index: 1;
+                                        }
+                                        
+                                        .dropdown-content a {
+                                            float: none;
+                                            color: black;
+                                            padding: 12px 16px;
+                                            text-decoration: none;
+                                            display: block;
+                                            text-align: left;
+                                        }
+                                        
+                                        .dropdown-content a:hover {
+                                            background-color: #ddd;
+                                        }
+                                        
+                                        .dropdown:hover .dropdown-content {
+                                            display: block;
+                                        }
+                            .description{
+    
+                                background-color: lightpink;
+                                padding-top: 20PX;
+                                padding-bottom: 20PX;
+                                padding-left: 20PX;
+                                font-size:16px; 
+                            }
+                            .grid-container{
+                                display: grid;
+                                grid-template-columns: auto auto auto auto auto auto;
+                                padding-left: 50px;
+
+                            }
+                            .grid-item{
+                                grid-column: 1/span 4;
+                            }
+                            .grid-item2{
+                                margin-left: -200px;
+                                /* margin-right: 15%;*/
+                                margin-top: 220px;
+                                margin-right: 50px;
+                            }
+                            .grid-item3{
+                            }
+
+    </style>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var steps = ['.res-step-two', '.res-step-three',];
+            var i = 1;
+            $(".res-step-form .res-btn-orange").click(function () {
+                var getClass = $(this).attr('data-class');
+                $(".res-steps").removeClass('active');
+                $(steps[i]).addClass('active');
+                i++;
+                if (getClass != ".res-form-three") {
+                    $(getClass).animate({
+                        left: '-150%'
+                    }, 500, function () {
+                        $(getClass).css('left', '150%');
+                    });
+                    $(getClass).next().animate({
+                        left: '0%'
+                    }, 500, function () {
+                        $(this).css('display', 'block');
+                    });
+                }
+            });
+
+            /* step back */
+            $(".res-step-form .res-btn-gray").click(function () {
+                var getClass = $(this).attr('data-class');
+                $(".res-steps").removeClass('active');
+                i--;
+                $(steps[i - 1]).addClass('active');
+                $(getClass).prev().css('left', '-150%')
+                $(getClass).animate({
+                    left: '150%'
+                }, 500);
+                $(getClass).prev().animate({
+                    left: '0%'
+                }, 500)
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <header class="header_area animated">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-- Menu Area Start -->
+                <div class="col-10 col-lg-10">
+                    <div class="menu_area">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="/Home/">GESIT</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Gesit-navbar"
+                                aria-controls="Gesit-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                    class="navbar-toggler-icon"></span></button>
+                            <!-- Menu Area -->
+                            <div class="collapse navbar-collapse" id="ca-navbar">
+                                <ul class="navbar-nav ml-auto" id="nav">
+                                    <li class="nav-item active"><a class="nav-link" href="/lecturer">Home Lecturer</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/selectYearKmean">Visualization</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Relation</a></li>
+                                    {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                                    {% endcomment %}
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Signup btn -->
+                <div class="col-2 col-lg-2">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            {% if username != None %}
+                            {{username}}
+                            <i class="fa fa-angle-down"></i>
+                            {% else %}
+                            Hello
+                            {% endif %}
+                        </button>
+                        <div class="dropdown-content">
+                            <!-- <a href="#">profile</a> -->
+                            <!-- <div class="dropdown-divider"></div> -->
+                            <a href="/logout">log out</a>
+                            <!-- <a href="#"></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="employer-post-new-job">
+        <div class="row">`
+            <div class="container content">
+                <div class="row">
+
+                    <div class="col-12" id="container">
+                        <div class="res-steps-container">
+                            <a href="/selectYearPreason">
+                                <div class="res-steps res-step-one" data-class=".res-form-one" style="color: black">
+                                    <div class="res-step-bar">1</div>
+                                    <div class="res-progress-bar"></div>
+                                    <div class="res-progress-title">Select Year </div>
+                                </div>
+                            </a>
+                            <a href="/selectYearPreason/selectSubjectPreason">
+                                <div class="res-steps res-step-two " data-class=".res-form-two" style="color: black">
+                                    <div class="res-step-bar">2</div>
+                                    <div class="res-progress-bar"></div>
+                                    <div class="res-progress-title">Select Subject</div>
+                                </div>
+                            </a>
+                            <div class="res-steps res-step-three active" data-class=".res-form-three">
+                                <div class="res-step-bar">3</div>
+                                <div class="res-progress-bar"></div>
+                                <div class="res-progress-title">Show graph</div>
+                            </div>
+                            <!-- <div class="res-steps res-step-four" data-class=".res-form-four">
+                                        <div class="res-step-bar">4</div>
+                                        <div class="res-progress-bar"></div>
+                                        <div class="res-progress-title">Add Title & Description 4</div>
+                                    </div> -->
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+
+                        <div class="res-step-form col-md-12 ">
+                            <h1 class="text-center">Step 3 &amp; Show graph Pearson</h1>
+                            <div class="form-group">
+                                <div class="container">
+                                    {% comment %}
+                                    <div class="row"> {% endcomment %}
+                                        <!-- graghs -->
+                                        <div class="grid-container">
+
+                                            <div class="grid-item">
+                                                <div class="col-9 acc">
+                                                    <br>
+                                                    <canvas id="bar-chart" width="800px" height="450px"></canvas>
+                                                    <script>
+                                                        var labels = {{ labels | safe}}
+                                                        var dataFromPy = {{ value | safe}}
+                                                        var color = [
+                                                            'rgba(255, 99, 132, 0.2)',
+                                                            'rgba(54, 162, 235, 0.2)',
+                                                            'rgba(255, 206, 86, 0.2)',
+                                                            'rgba(75, 192, 192, 0.2)',
+                                                            'rgba(153, 102, 255, 0.2)',
+                                                            'rgba(255, 159, 64, 0.2)',
+                                                            'rgba(205, 138, 132, 0.2)',
+                                                            'rgba(168, 159, 235, 0.2)',
+                                                            'rgba(88, 149, 63, 0.2)',
+                                                            'rgba(56, 159, 235, 0.2)',
+                                                            'rgba(168, 23, 125, 0.2)',
+                                                            'rgba(18, 255, 121, 0.2)',
+                                                            'rgba(168, 192, 183, 0.2)',
+                                                            'rgba(28, 142, 135, 0.2)',
+                                                            'rgba(191, 169, 215, 0.2)',
+                                                            'rgba(18, 123, 224, 0.2)',
+                                                            'rgba(101, 255, 185, 0.2)',
+                                                            'rgba(45, 179, 85, 0.2)',
+                                                            'rgba(118, 189, 177, 0.2)',
+                                                            'rgba(255, 59, 25, 0.2)',
+                                                            'rgba(123, 224, 111, 0.2)'
+                                                        ]
+                                                        new Chart(document.getElementById("bar-chart"), {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: labels,
+                                                                datasets: [
+                                                                    {
+                                                                        label: "Pearson Correlation Coefficient",
+                                                                        backgroundColor: color,
+                                                                        data: dataFromPy
+                                                                    }
+                                                                ]
+                                                            },
+                                                            options: {
+                                                                legend: { display: false },
+                                                                title: {
+                                                                    display: true,
+                                                                    text: 'Pearson Correlation Coefficient in {{subject1 | safe}} with other subjects'
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <div class="grid-item2">
+                                                <div class="description">
+                                                    ....
+                                                </div>
+                                            </div>
+                                            <div class="grid-item3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div id="tableana" class="box-part text-center">
+                                        </div>
+                                        <br><br>
+                                        <br><br>
+                                        <div><input type="button" onClick="window.open('/showAllPearsonValues','Values')"
+                                                value="Click for see all values"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>

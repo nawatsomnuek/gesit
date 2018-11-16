@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TallSoneY56</title>
+
+    {% load static %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/TallSoneY.js' %}" rel="script"></script>
+    <script src="{% static 'js/TallSoneY55.js' %}" rel="script"></script>
+    <style>
+        a{
+            text-decoration: none;
+            color: #d1ecf1;
+        }
+        a:hover{
+            color: #f1b922;
+        }
+        .right {
+        top: 75%;
+        float: left;
+        transform: translateY(125%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="nav-side-menu">
+            <div class="brand">GESIT</div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li data-toggle="collapse" data-target="#programming" class="collapsed active">
+                        <a href="Home.html">
+                            <i class="fa fa-dashboard fa-lg"></i> All
+                        </a>
+                    </li>
+
+                    <li data-toggle="collapse" data-target="#programming" class="collapsed">
+                        <a href="#"><i class="fa fa-gift fa-lg"></i><input id="Programming" type="hidden" name="courseId">
+                            Programming </a>
+                    </li>
+                    <!--<ul class="sub-menu collapse" id="programming">-->
+                    <!--<li ><a href="#">Int102</a></li>-->
+                    <!--<li><a href="#">Int105</a></li>-->
+                    <!--<li><a href="#">Int106</a></li>-->
+                    <!--<li><a href="#">Int302</a></li>-->
+                    <!--<li><a href="#">Int303</a></li>-->
+                    <!--</ul>-->
+
+
+                    <li data-toggle="collapse" data-target="#network" class="collapsed">
+                        <a href="#"><i class="fa fa-globe fa-lg"></i> <input id="Network" type="hidden" name="courseId">Network</a>
+                    </li>
+                    <!--<ul class="sub-menu collapse" id="network">-->
+                    <!--<li><a href="#">Int107</a></li>-->
+                    <!--<li><a href="#">Int201</a></li>-->
+                    <!--<li><a href="#">Int202</a></li>-->
+                    <!--<li><a href="#">Int205</a></li>-->
+                    <!--<li><a href="#">Int206</a></li>-->
+                    <!--<li><a href="#">Int301</a></li>-->
+                    <!--<li><a href="#">Int305</a></li>-->
+                    <!--<li><a href="#">Int401</a></li>-->
+                    <!--</ul>-->
+
+
+                    <li data-toggle="collapse" data-target="#management" class="collapsed">
+                        <a href="#"><i class="fa fa-globe fa-lg"></i><input id="Management" type="hidden" name="courseId">
+                            Management</a>
+                    </li>
+                    <!--<ul class="sub-menu collapse" id="management">-->
+                    <!--<li><a href="#">Int204</a></li>-->
+                    <!--<li><a href="#">Int302</a></li>-->
+                    <!--<li><a href="#">Int306</a></li>-->
+                    <!--<li><a href="#">Int402</a></li>-->
+                    <!--</ul>-->
+
+                    <li data-toggle="collapse" data-target="#database" class="collapsed">
+                        <a href="#"><i class="fa fa-car fa-lg"></i><input id="Database" type="hidden" name="courseId">
+                            Database</a>
+                    </li>
+                    <!--<ul class="sub-menu collapse" id="database">-->
+                    <!--<li><a href="#">Int203</a></li>-->
+                    <!--<li><a href="#">Int207</a></li>-->
+                    <!--</ul>-->
+
+
+                    <li data-toggle="collapse" data-target="#math" class="collapsed">
+                        <a href="#"><i class="fa fa-user fa-lg"></i><input id="Math" type="hidden" name="courseId">
+                            Math</a>
+                        </a>
+                    </li>
+                    <!--<ul class="sub-menu collapse" id="math">-->
+                    <!--<li><a href="#">Int104</a></li>-->
+                    <!--<li><a href="#">Int304</a></li>-->
+                    <!--</ul>-->
+
+                    <li data-toggle="collapse" data-target="#others" class="collapsed">
+                        <a href="#"><i class="fa fa-users fa-lg"></i><input id="Others" type="hidden" name="courseId">
+                            Others</a>
+                    </li>
+                    <!--<ul class="sub-menu collapse" id="others">-->
+                    <!--<li><a href="#">Int101</a></li>-->
+                    <!--<li><a href="#">Int307</a></li>-->
+                    <!--<li><a href="#">Int351</a></li>-->
+                    <!--<li><a href="#">Int353</a></li>-->
+                    <!--<li><a href="#">Int450</a></li>-->
+                    <!--</ul>-->
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-10 col-10">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+
+                        <!--<a class="navbar-brand" href="#">GESIT</a>-->
+                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"-->
+                        <!--aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation">-->
+                        <!--<span class="navbar-toggler-icon"></span>-->
+                        <!--</button>-->
+
+                        <div class="collapse navbar-collapse" id="ca-navbar">
+                            <ul class="navbar-nav ml-auto " id="nav">
+                                <li class="nav-item"><a class="nav-link" href="Home">Home</a></li>
+                                {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                                <li class="nav-item"><a class="nav-link" href="....">relation</a></li> {% endcomment %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div class=" d-none d-lg-block">
+                        <a href="#">
+                            {% if username != None %}
+                            {{username}}
+                            {% else %}
+                            Hello
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <form method="POST" action="selectYearKmean/selectSubject">
+        <div class="container-fluid">
+            <div id="product" class="row">
+                <div class="col-xs-3 col-lg-3 nav-side-menu bg-transparent">
+                </div>
+                <div class="col-xs-8 col-lg-8 box-part">
+                    <div class="row">
+                        <div class="col-sm-12 pull-left">
+                            <div class="btn-group">
+                                <!-- <button class="btn btn-info" id="Year55">
+                                Year55
+                            </button> -->
+                                {% for result in years %}
+                                <button class="btn btn-dark" id="{{result}}">
+                                    <a href="TallSoneY56.html">{{result}}</a>
+                                </button>
+                                {% endfor %}
+                                <!-- <button class="btn btn-info" id="Year57">
+                                <a href="TallSoneY57.html"> Year57</a>
+                            </button>
+                            <button class="btn btn-info" id="Year58">
+                                <a href="TallSoneY58.html"> Year58</a>
+                            </button>
+                            <button class="btn btn-info" id="Year59">
+                                <a href="TallSoneY59.html"> Year59</a>
+                            </button>
+                            <button class="btn btn-info" id="Year60">
+                                <a href="TallSoneY60.html"> Year60</a>
+                            </button> -->
+                                <div class="pull-right">
+                                    <div class="grid-item ">
+                                        <input type="search" class="form-control" id="search" placeholder="Subjects ID">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-lg-12">
+                            <br>
+                            <div class="card">
+                                <!--<button id="add__new__list" type="button" class="btn btn-success position-absolute" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus"></i> Add a new List</button>-->
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Course ID</th>
+                                            <th scope="col">Course Name</th>
+                                            <th scope="col">Credit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if group != '' %}
+                                        {% for result in subjects %}
+                                        {% if result.groupOfSubject_id == group%}
+                                        <tr>
+                                            <!--<th scope="row"></th>-->
+                                            <td><input id="{{result.subjectNumber}}" type="checkbox" name="{{result.subjectNumber}}"
+                                                    value="{{result.subjectNumber}}">&nbsp;{{result.subjectNumber}}</td>
+                                            <td> {{result.subjectName}} </td>
+                                            <td>{{result.credit}}</td>
+                                            <!-- <td>
+                                            <a class="btn btn-sm btn-primary" href="#"></a>
+                                            <a class="btn btn-sm btn-danger" href="#">delete</a>
+                                        </td> -->
+                                        </tr>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %}
+
+                                        {% if group == '' %}
+                                        {% for result in subjects %}
+                                        <tr>
+                                            <td><input id="{{result.subjectNumber}}" type="checkbox" name="{{result.subjectNumber}}"
+                                                    value="{{result.subjectNumber}}">&nbsp;{{result.subjectNumber}}</td>
+                                            <td> {{result.subjectName}} </td>
+                                            <td>{{result.credit}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <button class="btn btn-success col-lg-2 pull-right">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

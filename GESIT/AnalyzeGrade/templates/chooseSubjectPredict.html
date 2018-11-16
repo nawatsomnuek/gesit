@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PredictGrade</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<style>
+    @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css')
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+        .grid-item {
+            padding: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .searchable-container{
+            margin:20px 0 0 0
+        }
+        .searchable-container label.btn-default.active{
+            background-color:#007ba7;
+            color:#FFF
+        }
+        .searchable-container label.btn-default{
+            width:90%;
+            border:1px solid #efefef;
+            margin:5px;
+            box-shadow:5px 8px 8px 0 #ccc;
+        }
+        .searchable-container label .bizcontent{
+            width:100%;
+        }
+        .searchable-container .btn-group{
+            width:90%
+        }
+        .searchable-container .btn span.glyphicon{
+            opacity: 0;
+        }
+        .searchable-container .btn.active span.glyphicon {
+            opacity: 1;
+        }
+        .funkyradio div {
+            clear: both;
+            overflow: hidden;
+            padding-right: 30px;
+        }        
+        .funkyradio{
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+        .funkyradio label {
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #D1D3D4;
+            font-weight: normal;
+            padding: 15px;
+        }
+
+        .funkyradio input[type="radio"]:empty,
+        .funkyradio input[type="checkbox"]:empty {
+            display: none;
+        }
+
+        .funkyradio input[type="radio"]:empty ~ label,
+        .funkyradio input[type="checkbox"]:empty ~ label {
+            position: relative;
+            line-height: 2.5em;
+            text-indent: 3.25em;
+            margin-top: 15px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .funkyradio input[type="radio"]:empty ~ label:before,
+        .funkyradio input[type="checkbox"]:empty ~ label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+        .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+            color: #888;
+        }
+
+        .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+        .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #C2C2C2;
+        }
+
+        .funkyradio input[type="radio"]:checked ~ label,
+        .funkyradio input[type="checkbox"]:checked ~ label {
+            color: #777;
+        }
+
+        .funkyradio input[type="radio"]:checked ~ label:before,
+        .funkyradio input[type="checkbox"]:checked ~ label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #333;
+            background-color: #ccc;
+        }
+
+        .funkyradio input[type="radio"]:focus ~ label:before,
+        .funkyradio input[type="checkbox"]:focus ~ label:before {
+            box-shadow: 0 0 0 3px #999;
+        }
+
+        .funkyradio-info input[type="radio"]:checked ~ label:before,
+        .funkyradio-info input[type="checkbox"]:checked ~ label:before {
+            color: #fff;
+            background-color: #5bc0de;
+        }
+
+        /* SCSS STYLES */
+        /*
+        .funkyradio {
+        
+            div {
+                clear: both;
+                overflow: hidden;
+            }
+        
+            label {
+                width: 100%;
+                border-radius: 3px;
+                border: 1px solid #D1D3D4;
+                font-weight: normal;
+            }
+        
+            input[type="radio"],
+            input[type="checkbox"] {
+        
+                &:empty {
+                    display: none;
+        
+                    ~ label {
+                        position: relative;
+                        line-height: 2.5em;
+                        text-indent: 3.25em;
+                        margin-top: 2em;
+                        cursor: pointer;
+                        user-select: none;
+        
+                        &:before {
+                            position: absolute;
+                            display: block;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            content: '';
+                            width: 2.5em;
+                            background: #D1D3D4;
+                            border-radius: 3px 0 0 3px;
+                        }
+                    }
+                }
+        
+                &:hover:not(:checked) ~ label {
+                    color: #888;
+        
+                    &:before {
+                        content: '\2714';
+                        text-indent: .9em;
+                        color: #C2C2C2;
+                    }
+                }
+        
+                &:checked ~ label {
+                    color: #777;
+        
+                    &:before {
+                        content: '\2714';
+                        text-indent: .9em;
+                        color: #333;
+                        background-color: #ccc;
+                    }
+                }
+        
+                &:focus ~ label:before {
+                    box-shadow: 0 0 0 3px #999;
+                }
+            }
+        
+            &-default {
+                input[type="radio"],
+                input[type="checkbox"] {
+                    &:checked ~ label:before {
+                        color: #333;
+                        background-color: #ccc;
+                    }
+                }
+            }
+        
+            &-primary {
+                input[type="radio"],
+                input[type="checkbox"] {
+                    &:checked ~ label:before {
+                        color: #fff;
+                        background-color: #337ab7;
+                    }
+                }
+            }
+        
+            &-success {
+                input[type="radio"],
+                input[type="checkbox"] {
+                    &:checked ~ label:before {
+                        color: #fff;
+                        background-color: #5cb85c;
+                    }
+                }
+            }
+        
+            &-danger {
+                input[type="radio"],
+                input[type="checkbox"] {
+                    &:checked ~ label:before {
+                        color: #fff;
+                        background-color: #d9534f;
+                    }
+                }
+            }
+        
+            &-warning {
+                input[type="radio"],
+                input[type="checkbox"] {
+                    &:checked ~ label:before {
+                        color: #fff;
+                        background-color: #f0ad4e;
+                    }
+                }
+            }
+        
+            &-info {
+                input[type="radio"],
+                input[type="checkbox"] {
+                    &:checked ~ label:before {
+                        color: #fff;
+                        background-color: #5bc0de;
+                    }
+                }
+            }
+        }
+        */
+
+    </style>
+
+<body>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-10 col-lg-10">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">GESIT</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
+                        aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Menu Area -->
+                    <div class="collapse navbar-collapse" id="ca-navbar">
+                        <ul class="navbar-nav ml-auto " id="nav">
+                            <li class="nav-item active"><a class="nav-link" href="Home.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="TallSoneY55.html">visualization</a></li>
+                            <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">relation</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12 col-lg-2">
+                <!--<div class="sing-up-button d-none d-lg-block">-->
+                <a href="#">manee</a>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid-container">
+            <h2 style="text-align: center;">Select Subjects For Prediction</h2>
+            <div class="grid-item">
+                <input type="search" class="form-control" id="search" placeholder="Subjects ID">
+            </div>
+        </div>
+        <form action="" method="POST">
+        <div class="funkyradio">
+            {% for result in subjects %}
+            <div class="funkyradio-info">
+                <input type="radio" name="subject" id="{{result.subjectNumber}}" value="{{result.subjectNumber}}" />
+                <label for="{{result.subjectNumber}}" style="padding-left: 0px;">
+                    Subject : {{result.subjectNumber}}
+                    <br>Credit : {{result.credit}}
+                </label>
+            </div>
+            {% endfor %}
+            <div class="grid-container">
+                <div class="grid-item">
+                    <a href="Home_student.html"><button class="btn btn-primary">
+                            < Back</button> </a> <button class="btn btn-success" type="Submit">Submit
+                        </button>
+                </div>
+            </div>
+        </div>
+        </form>
+
+    </div>
+</body>
+<script>
+    $(function () {
+        $('#search').on('keyup', function () {
+            var pattern = $(this).val();
+            $('.searchable-container .items').hide();
+            $('.searchable-container .items').filter(function () {
+                return $(this).text().match(new RegExp(pattern, 'i'));
+            }).show();
+        });
+    });
+<? php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+    $name = $email = $gender = $comment = $website = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["name"])) {
+            $nameErr = "Name is required";
+        } else {
+            $name = test_input($_POST["name"]);
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+                $nameErr = "Only letters and white space allowed";
+            }
+        }
+
+        if (empty($_POST["email"])) {
+            $emailErr = "Email is required";
+        } else {
+            $email = test_input($_POST["email"]);
+            // check if e-mail address is well-formed
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = "Invalid email format";
+            }
+        }
+
+        if (empty($_POST["website"])) {
+            $website = "";
+        } else {
+            $website = test_input($_POST["website"]);
+            // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+            if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $website)) {
+                $websiteErr = "Invalid URL";
+            }
+        }
+
+        if (empty($_POST["comment"])) {
+            $comment = "";
+        } else {
+            $comment = test_input($_POST["comment"]);
+        }
+
+        if (empty($_POST["gender"])) {
+            $genderErr = "Gender is required";
+        } else {
+            $gender = test_input($_POST["gender"]);
+        }
+    }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+?>
+</script>
+
+</html>

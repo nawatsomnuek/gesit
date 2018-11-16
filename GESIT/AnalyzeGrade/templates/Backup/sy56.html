@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SY56</title>
+    {% load static %} {% static '' %}
+    <link href="{% static '//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <script src="{% static '//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '//code.jquery.com/jquery-1.11.1.min.js' %}"></script>
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        label a{
+            border-color: #FFFFFF;
+            font-size: 16px;
+            padding: 4px;
+        }
+        a{
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+        a:hover{
+            color: #f1b922;
+        }
+        .right {
+        top: 75%;
+        float: left;
+        transform: translateY(125%);
+        }
+       .header_area {
+                color: #FFFFFF;
+                background-color:#4e555b;
+                left: 0;
+                position: fixed;
+                width: 100%;
+                z-index: 99;
+                top: 0;
+                padding: 0 4%;
+            }
+            .content{
+                position: relative;
+                top: 95px;
+            }
+            .menu_area .navbar-brand {
+                font-size: 30px;
+                color: #fff;
+                /*margin: 0;*/
+                /*line-height: 1;*/
+                /*padding: 0;*/
+            }
+            .menu_area #nav .nav-link {
+                color: #fff;
+                /*display: block;*/
+                font-size: 16px;
+                font-weight: 500;
+                /*border-radius: 30px;*/
+                /*-webkit-transition-duration: 500ms;*/
+                /*-o-transition-duration: 500ms;*/
+                /*transition-duration: 500ms;*/
+                /*padding: 35px 15px;*/
+            }
+            .menu_area nav ul li > a:hover {
+                color: #fb397d;
+            }
+            body {
+                font-family: 'Open Sans', sans-serif;
+                color: #353535;
+
+            }
+            .content h1 {
+                text-align: center;
+            }
+            /*	--------------------------------------------------
+                :: Table Filter
+                -------------------------------------------------- */
+            .panel {
+                border: 1px solid #ddd;
+                background-color: #fcfcfc;
+                align-content: center;
+            }
+            .panel .btn-group {
+                margin: 25px 20px 20px;
+                font-size: 14px;
+            }
+            .panel .btn-group .btn {
+                transition: background-color .3s ease;
+                font-size: 14px;
+            }
+            .table-filter {
+                background-color: #fff;
+                border-bottom: 1px solid #eee;
+            }
+            .table-filter tbody tr:hover {
+                cursor: pointer;
+                background-color: #eee;
+            }
+            .table-filter tbody tr td {
+                padding: 10px;
+                vertical-align: middle;
+                border-top-color: #eee;
+            }
+            .table-filter tbody tr.selected td {
+                background-color: #eee;
+            }
+            .table-filter tr td:first-child {
+                width: 38px;
+            }
+            .table-filter tr td:nth-child(2) {
+                width: 35px;
+            }
+            .ckbox {
+                position: relative;
+            }
+            .ckbox input[type="checkbox"] {
+                opacity: 0;
+            }
+            .ckbox label {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .ckbox label:before {
+                content: '';
+                top: 1px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: absolute;
+                border-radius: 2px;
+                border: 1px solid #bbb;
+                background-color: #fff;
+            }
+            .ckbox input[type="checkbox"]:checked + label:before {
+                border-color: #2BBCDE;
+                background-color: #2BBCDE;
+            }
+            .ckbox input[type="checkbox"]:checked + label:after {
+                top: 3px;
+                left: 3.5px;
+                content: '\e013';
+                color: #fff;
+                font-size: 11px;
+                font-family: 'Glyphicons Halflings';
+                position: absolute;
+            }
+            .table-filter .media-body {
+                display:block;
+                /* Had to use this style to force the div to expand (wasn't necessary with my bootstrap version 3.3.6) */
+            }
+            .table-filter .media-meta {
+                font-size: 11px;
+                color: #0b0b0b;
+            }
+            .table-filter .media .title {
+                color: #0b0b0b;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: normal;
+                margin: 0;
+            }
+            .table-filter .media .title span {
+                font-size: .8em;
+                margin-right: 10px;
+            }
+            .table-filter .media .title span.Programming {
+                color: #5cb85c;
+            }
+            .table-filter .media .title span.Network {
+                color: #f0ad4e;
+            }
+            .table-filter .media .title span.Management {
+                color: #d9534f;
+            }
+            .table-filter .media .title span.Database {
+                color: #00ccff;
+            }
+            .table-filter .media .title span.Math {
+                color: #005cbf;
+            }
+            .table-filter .media .title span.Others {
+                color: #5a5a5a;
+            }
+            .table-filter .media .summary {
+                font-size: 14px;
+            }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="header_area animated">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Menu Area Start -->
+                    <div class="col-12 col-lg-10">
+                        <div class="menu_area">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                <!-- Logo -->
+                                <a class="navbar-brand" href="#">GESIT</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Gesit-navbar"
+                                    aria-controls="Gesit-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                        class="navbar-toggler-icon"></span></button>
+                                <!-- Menu Area -->
+                                <div class="collapse navbar-collapse" id="ca-navbar">
+                                    <ul class="navbar-nav ml-auto" id="nav">
+                                        <li class="nav-item active"><a class="nav-link" href="Home.html">Home</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="TallSoneY55.html">visualization</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="">relation</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Signup btn -->
+                    <div class="col-12 col-lg-2">
+                        {% if username != None %}
+                        {{username}}
+                        {% else %}
+                        Hello
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container content">
+        <section class="content">
+            <div class="row">
+                <h1>Choose Subject Year55</h1>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <!--<div class="pull-right">-->
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-filter" data-target="all">All Subjects</button>
+                                <button type="button" class="btn btn-success btn-filter" data-target="Programming">Programming</button>
+                                <button type="button" class="btn btn-warning btn-filter" data-target="Network">Network</button>
+                                <button type="button" class="btn btn-danger btn-filter" data-target="Management">Management</button>
+                                <button type="button" class="btn btn-info btn-filter" data-target="Database">Database</button>
+                                <button type="button" class="btn btn-primary btn-filter" data-target="Math">Math</button>
+                                <button type="button" class="btn btn-light btn-filter" data-target="Others">Others</button>
+                            </div>
+                            <!--</div>-->
+                            <div class="table-container">
+                                <table class="table table-filter">
+                                    <tbody>
+                                        {% for result in subjects %}
+                                        <tr data-status="Programming" class="selected">
+                                            <td>
+                                                <div class="ckbox">
+                                                    <input id="{{result.subjectNumber}}" type="checkbox" name="{{result.subjectNumber}}"
+                                                        value="{{result.subjectNumber}}">
+                                                    <label for="checkbox1" class="btn btn-"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                            </td>
+                                            <td>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <span class="media-meta pull-right">{{result.credit}}</span>
+                                                        <h4 class="title">
+                                                            {{result.subjectName}}
+                                                            <span class="pull-right Programming">Programming</span>
+                                                        </h4>
+                                                        <p class="summary">Programming</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--</section>-->
+
+    <!--</div>-->
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $('.star').on('click', function () {
+                $(this).toggleClass('star-checked');
+            });
+
+            $('.ckbox label').on('click', function () {
+                $(this).parents('tr').toggleClass('selected');
+            });
+
+            $('.btn-filter').on('click', function () {
+                var $target = $(this).data('target');
+                if ($target != 'all') {
+                    $('.table tr').css('display', 'none');
+                    $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+                } else {
+                    $('.table tr').css('display', 'none').fadeIn('slow');
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

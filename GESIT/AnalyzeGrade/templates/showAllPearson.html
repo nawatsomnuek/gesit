@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                 <td>Subject</td>
+            </tr>
+            <tr>
+                <td>Value</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                    {% for result in allpearson %}
+                <td>{{result.subject2}}</td>
+                {% endfor %}
+            </tr>
+            <tr>{% for result in allpearson %}
+                <td>{{result.value}}</td>
+                {% endfor %}
+            </tr>
+            
+        </table>
+    </body>
+</html>

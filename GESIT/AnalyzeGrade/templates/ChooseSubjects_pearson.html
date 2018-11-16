@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>step by studeent 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  <script src="\static\js\step.js"  type="text/javascript" charset="utf-8"></script> -->
+    <style type="text/css">
+        body {
+            overflow-x: hidden;
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps {
+            width: 33%;
+            text-align: center;
+            float: left;
+            cursor: pointer
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps .res-step-bar {
+            -webkit-border-radius: 50% !important;
+            -moz-border-radius: 50% !important;
+            -ms-border-radius: 50% !important;
+            border-radius: 50% !important;
+            background: #0aa7e1;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            margin-top: 10px;
+            text-align: center;
+            color: #fff;
+            padding-top: 7px;
+            font-size: 20px
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps .res-progress-title {
+            text-align: center;
+            font-size: 15px;
+            padding-top: 10px;
+            display: block
+        }
+
+        #employer-post-new-job .res-steps-container .res-steps .res-progress-bar {
+            height: 5px;
+            background: #0aa7e1;
+            width: 50%;
+            margin: -22px 0 0 50%;
+            float: left
+        }
+
+        #employer-post-new-job .res-steps-container .res-step-two .res-progress-bar,
+        #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar {
+            width: 100%;
+            margin-left: 0%
+        }
+
+        #employer-post-new-job .res-steps-container .res-step-three .res-progress-bar {
+            width: 50%;
+            margin-right: 50%
+        }
+
+        #employer-post-new-job .res-step-form {
+            border: 1px solid #d2d2d2;
+            box-shadow: 0px 6px 4px -2px silver;
+            position: absolute
+        }
+
+        #employer-post-new-job .res-step-form h1 {
+            margin: 10px 0;
+            color: #0aa7e1;
+            font-size: 18px
+        }
+
+        #employer-post-new-job .res-step-form .form-horizontal label {
+            font-weight: normal
+        }
+
+        #employer-post-new-job .res-form-two,
+        #employer-post-new-job .res-form-three,
+        #employer-post-new-job .res-form-four {
+            left: 150%
+        }
+
+        #employer-post-new-job .active .res-step-bar {
+            background: #f19b20 !important
+        }
+
+        #employer-post-new-job .active .res-progress-title {
+            color: #0aa7e1
+        }
+
+        ------------------history Grade ----------------- .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        .grid-item {
+            padding: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .mb-60 {
+            margin-bottom: 60px;
+        }
+
+        .services-inner {
+            border: 2px solid #B0C4DE;
+            margin-left: 35px;
+            transition: .3s;
+        }
+
+        .our-services-img {
+            float: left;
+            margin-left: -36px;
+            margin-right: 22px;
+            margin-top: 28px;
+        }
+
+        .our-services-text {
+            padding-right: 10px;
+            overflow: hidden;
+            padding: 28px 0 25px;
+        }
+
+        .our-services-text h4 {
+            color: #222222;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            padding-bottom: 10px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .our-services-text h4::before {
+            background: #ec6d48 none repeat scroll 0 0;
+            bottom: 0;
+            content: "";
+            height: 1px;
+            position: absolute;
+            width: 35px;
+        }
+
+        .our-services-wrapper:hover .services-inner {
+            background: #fff none repeat scroll 0 0;
+            border: 2px solid transparent;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .our-services-text p {
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 26px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .btn-glyphicon {
+            justify-content: center;
+            align-items: center;
+            padding: 4px;
+            /*ปรับ ขีดๆ Add*/
+            background: #ffffff;
+            margin-right: 4px;
+        }
+
+        .icon-btn {
+            padding: 1px 15px 3px 2px;
+            border-radius: 50px;
+        }
+
+        ------------------ Select subject From----------------- @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css') .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+
+        .grid-item {
+            padding: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .searchable-container {
+            margin: 20px 0 0 0
+        }
+
+        .searchable-container label.btn-default.active {
+            background-color: #007ba7;
+            color: #FFF
+        }
+
+        .searchable-container label.btn-default {
+            width: 90%;
+            border: 1px solid #efefef;
+            margin: 5px;
+            box-shadow: 5px 8px 8px 0 #ccc;
+        }
+
+        .searchable-container label .bizcontent {
+            width: 100%;
+        }
+
+        .searchable-container .btn-group {
+            width: 90%
+        }
+
+        .searchable-container .btn span.glyphicon {
+            opacity: 0;
+        }
+
+        .searchable-container .btn.active span.glyphicon {
+            opacity: 1;
+        }
+
+        .funkyradio div {
+            clear: both;
+            overflow: hidden;
+            padding-right: 5px;
+        }
+
+        .funkyradio {
+            display: grid;
+            grid-template-columns: auto auto auto;
+
+        }
+
+        .funkyradio label {
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #D1D3D4;
+            font-weight: normal;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .funkyradio input[type="radio"]:empty,
+        .funkyradio input[type="checkbox"]:empty {
+            display: none;
+        }
+
+        .funkyradio input[type="radio"]:empty~label,
+        .funkyradio input[type="checkbox"]:empty~label {
+            position: relative;
+            line-height: 2.5em;
+            text-indent: 3.25em;
+            margin-top: 2em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .funkyradio input[type="radio"]:empty~label:before,
+        .funkyradio input[type="checkbox"]:empty~label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .funkyradio input[type="radio"]:hover:not(:checked)~label,
+        .funkyradio input[type="checkbox"]:hover:not(:checked)~label {
+            color: #888;
+        }
+
+        .funkyradio input[type="radio"]:hover:not(:checked)~label:before,
+        .funkyradio input[type="checkbox"]:hover:not(:checked)~label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #C2C2C2;
+        }
+
+        .funkyradio input[type="radio"]:checked~label,
+        .funkyradio input[type="checkbox"]:checked~label {
+            color: #777;
+        }
+
+        .funkyradio input[type="radio"]:checked~label:before,
+        .funkyradio input[type="checkbox"]:checked~label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #333;
+            background-color: #ccc;
+        }
+
+        .funkyradio input[type="radio"]:focus~label:before,
+        .funkyradio input[type="checkbox"]:focus~label:before {
+            box-shadow: 0 0 0 3px #999;
+        }
+
+        .funkyradio-info input[type="radio"]:checked~label:before,
+        .funkyradio-info input[type="checkbox"]:checked~label:before {
+            color: #fff;
+            background-color: #5bc0de;
+        }
+
+        ----------------------ShooseSubject---------------------------- 
+         label a{
+            border-color: #FFFFFF;
+            font-size: 16px;
+            padding: 4px;
+        }
+        a{
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+        a:hover{
+            color: #f1b922;
+        }
+        .right {
+        top: 75%;
+        float: left;
+        transform: translateY(125%);
+        }
+       .header_area {
+                color: #FFFFFF;
+                background-color:#4e555b;
+                left: 0;
+                position: fixed;
+                width: 100%;
+                z-index: 99;
+                top: 0;
+                padding: 0 4%;
+            }
+            .content{
+                position: relative;
+                top: 95px;
+            }
+            .menu_area .navbar-brand {
+                font-size: 30px;
+                color: #fff;
+                /*margin: 0;*/
+                /*line-height: 1;*/
+                /*padding: 0;*/
+            }
+            .menu_area #nav .nav-link {
+                color: #fff;
+                /*display: block;*/
+                font-size: 16px;
+                font-weight: 500;
+                /*border-radius: 30px;*/
+                /*-webkit-transition-duration: 500ms;*/
+                /*-o-transition-duration: 500ms;*/
+                /*transition-duration: 500ms;*/
+                /*padding: 35px 15px;*/
+            }
+            .menu_area nav ul li > a:hover {
+                color: #fb397d;
+            }
+            body {
+                font-family: 'Open Sans', sans-serif;
+                color: #353535;
+
+            }
+            .content h1 {
+                text-align: center;
+            }
+            /*  --------------------------------------------------
+                :: Table Filter
+                -------------------------------------------------- */
+            .panel {
+                border: 1px solid #ddd;
+                background-color: #fcfcfc;
+                align-content: center;
+            }
+            .panel .btn-group {
+                margin: 25px 20px 20px;
+                font-size: 14px;
+            }
+            .panel .btn-group .btn {
+                transition: background-color .3s ease;
+                font-size: 14px;
+            }
+            .table-filter {
+                background-color: #fff;
+                border-bottom: 1px solid #eee;
+            }
+            .table-filter tbody tr:hover {
+                cursor: pointer;
+                background-color: #eee;
+            }
+            .table-filter tbody tr td {
+                padding: 10px;
+                vertical-align: middle;
+                border-top-color: #eee;
+            }
+            .table-filter tbody tr.selected td {
+                background-color: #eee;
+            }
+            .table-filter tr td:first-child {
+                width: 38px;
+            }
+            .table-filter tr td:nth-child(2) {
+                width: 35px;
+            }
+            .ckbox {
+                position: relative;
+            }
+            .ckbox input[type="checkbox"] {
+                opacity: 0;
+            }
+            .ckbox label {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .ckbox label:before {
+                content: '';
+                top: 1px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: absolute;
+                border-radius: 2px;
+                border: 1px solid #bbb;
+                background-color: #fff;
+            }
+            .ckbox input[type="checkbox"]:checked + label:before {
+                border-color: #2BBCDE;
+                background-color: #2BBCDE;
+            }
+            .ckbox input[type="checkbox"]:checked + label:after {
+                top: 3px;
+                left: 3.5px;
+                content: '\e013';
+                color: #fff;
+                font-size: 11px;
+                font-family: 'Glyphicons Halflings';
+                position: absolute;
+            }
+            .table-filter .media-body {
+                display:block;
+                /* Had to use this style to force the div to expand (wasn't necessary with my bootstrap version 3.3.6) */
+            }
+            .table-filter .media-meta {
+                font-size: 11px;
+                color: #0b0b0b;
+            }
+            .table-filter .media .title {
+                color: #0b0b0b;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: normal;
+                margin: 0;
+            }
+            .table-filter .media .title span {
+                font-size: .8em;
+                margin-right: 10px;
+            }
+            .table-filter .media .title span.Programming {
+                color: #5cb85c;
+            }
+            .table-filter .media .title span.Network {
+                color: #f0ad4e;
+            }
+            .table-filter .media .title span.Management {
+                color: #d9534f;
+            }
+            .table-filter .media .title span.Database {
+                color: #00ccff;
+            }
+            .table-filter .media .title span.Math {
+                color: #005cbf;
+            }
+            .table-filter .media .title span.Others {
+                color: #5a5a5a;
+            }
+            .table-filter .media .summary {
+                font-size: 14px;
+            }
+            .choose{
+                margin-left: 9%;
+            }
+            .dropdown .dropbtn {
+                font-size: 16px;    
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+            
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color:slateblue;
+            }
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+    </style>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var steps = ['.res-step-two', '.res-step-three',];
+            var i = 1;
+            $(".res-step-form .res-btn-orange").click(function () {
+                var getClass = $(this).attr('data-class');
+                $(".res-steps").removeClass('active');
+                $(steps[i]).addClass('active');
+                i++;
+                if (getClass != ".res-form-three") {
+                    $(getClass).animate({
+                        left: '-150%'
+                    }, 500, function () {
+                        $(getClass).css('left', '150%');
+                    });
+                    $(getClass).next().animate({
+                        left: '0%'
+                    }, 500, function () {
+                        $(this).css('display', 'block');
+                    });
+                }
+            });
+
+            /* step back */
+            $(".res-step-form .res-btn-gray").click(function () {
+                var getClass = $(this).attr('data-class');
+                $(".res-steps").removeClass('active');
+                i--;
+                $(steps[i - 1]).addClass('active');
+                $(getClass).prev().css('left', '-150%')
+                $(getClass).animate({
+                    left: '150%'
+                }, 500);
+                $(getClass).prev().animate({
+                    left: '0%'
+                }, 500)
+            });
+        });
+        // ------------------ Select subject From-----------------
+        $(function () {
+            $('#search').on('keyup', function () {
+                var pattern = $(this).val();
+                $('.searchable-container .items').hide();
+                $('.searchable-container .items').filter(function () {
+                    return $(this).text().match(new RegExp(pattern, 'i'));
+                }).show();
+            });
+        });
+// ------------------Predict Grade-----------------------
+ 
+    </script>
+</head>
+
+<style>
+    .header_area {
+            color: #FFFFFF;
+            background-color:#4e555b;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+            top: 0;
+            padding: 0 4%;
+        }
+        .menu_area .navbar-brand {
+            font-size: 30px;
+            color: #fff;
+            /*margin: 0;*/
+            /*line-height: 1;*/
+            /*padding: 0;*/
+        }
+        .menu_area #nav .nav-link {
+            color: #fff;
+            /*display: block;*/
+            font-size: 16px;
+            font-weight: 500;
+            /*border-radius: 30px;*/
+            /*-webkit-transition-duration: 500ms;*/
+            /*-o-transition-duration: 500ms;*/
+            /*transition-duration: 500ms;*/
+            /*padding: 35px 15px;*/
+        }
+        .menu_area nav ul li > a:hover {
+            color: #fb397d;
+        }
+        .center {
+            text-align: center;
+           /* border: 3px opacity:30% gray ;*/
+            padding-bottom: 20px;
+        }
+        .enter{
+            left:0;
+            position: fixed; 
+            bottom: 0%;
+            text-align: center;
+            width: 100%;
+            background-color: white;
+            padding-bottom:10px; 
+            padding-top:10px;
+        }
+        .buttom3{
+            width: 10%;
+            float: right;
+            width:20%;
+            opacity:0.6;
+            transition:0.3s;    
+        }
+        .buttom3:hover{
+            opacity:1;
+            box-shadow:0 12px 12px 0 rgba(0,0,0,0.24), 0 19px 50px 0 rgba(0,0,0,0.19);
+        }
+        .dee {
+            margin-left: 20 px;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;    
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color:slateblue;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .content{
+            position: relative;
+            top: 65px;
+        }
+        .con{
+            position: relative;
+            top: 5px;
+        }
+</style>
+
+<body>
+    <header class="header_area animated">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-- Menu Area Start -->
+                <div class="col-10 col-lg-10">
+                    <div class="menu_area">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="/Home/">GESIT</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Gesit-navbar"
+                                aria-controls="Gesit-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                    class="navbar-toggler-icon"></span></button>
+                            <!-- Menu Area -->
+                            <div class="collapse navbar-collapse" id="ca-navbar">
+                                <ul class="navbar-nav ml-auto" id="nav">
+                                    <li class="nav-item active"><a class="nav-link" href="#">Home Lecturer</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/selectYearKmean">Visualization</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Relation</a></li>
+                                    {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
+                                    {% endcomment %}
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Signup btn -->
+                <div class="col-2 col-lg-2">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            {% if username != None %}
+                            {{username}}
+                            <i class="fa fa-angle-down"></i>
+                            {% else %}
+                            Hello
+                            {% endif %}
+                        </button>
+                        <div class="dropdown-content">
+                            <!-- <a href="#">profile</a> -->
+                            <!-- <div class="dropdown-divider"></div> -->
+                            <a href="/logout">log out</a>
+                            <!-- <a href="#"></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="employer-post-new-job">
+        <div class="row">`
+            <div class="container content">
+                <div class="row">
+
+                    <div class="col-12" id="container">
+                        <div class="res-steps-container">
+                            <div class="res-steps res-step-one " data-class=".res-form-one">
+                                <div class="res-step-bar">1</div>
+                                <div class="res-progress-bar"></div>
+                                <div class="res-progress-title">Show Transcript</div>
+                            </div>
+                            <div class="res-steps res-step-two active" data-class=".res-form-two">
+                                <div class="res-step-bar">2</div>
+                                <div class="res-progress-bar"></div>
+                                <div class="res-progress-title">Select Subject</div>
+                            </div>
+                            <div class="res-steps res-step-three" data-class=".res-form-three">
+                                <div class="res-step-bar">3</div>
+                                <div class="res-progress-bar"></div>
+                                <div class="res-progress-title">Predict</div>
+                            </div>
+                            <!-- <div class="res-steps res-step-four" data-class=".res-form-four">
+                                        <div class="res-step-bar">4</div>
+                                        <div class="res-progress-bar"></div>
+                                        <div class="res-progress-title">Add Title & Description 4</div>
+                                    </div> -->
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+
+                        <div class="res-step-form col-md-12 ">
+                            <h1 class="text-center">Step 2 &amp; Select Subject </h3>
+                                <div class="form-group">
+
+                                    <!-- <div class="container con"> -->
+                                        <!-- <section class="content align-items-center"> -->
+                                            {% comment %} <div class="row"> {% endcomment %}
+                                                <h1>Choose Subject Year {{selectYearPearsonn}}</h1>
+                                                {% comment %} <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> {% endcomment %}
+                                                <div class="choose col-lg-10">
+                                                    <div class="panel panel-default">
+                                                        <form action="" method="POST">
+                                                            <div class="panel-body">
+                                                                <!--<div class="pull-right">-->
+                                                                <div class="btn-group pull-right">
+                                                                    <input type="submit" class="btn btn-default btn-filter" data-target="AllSubject" name="GroupSubject" id="GroupSubject" value="AllSubject"/>
+                                                                    <input type="submit" class="btn btn-success btn-filter" data-target="Programming" name="GroupSubject" id="GroupSubject" value="Programming"/>
+                                                                    <input type="submit" class="btn btn-warning btn-filter" data-target="Network" name="GroupSubject" id="GroupSubject" value="Network"/>
+                                                                    <input type="submit" class="btn btn-danger btn-filter" data-target="Management" name="GroupSubject" id="GroupSubject" value="Management"/>
+                                                                    <input type="submit" class="btn btn-info btn-filter" data-target="Database" name="GroupSubject" id="GroupSubject" value="Database"/>
+                                                                    <input type="submit" class="btn btn-primary btn-filter" data-target="Math" name="GroupSubject" id="GroupSubject" value="Math"/>
+                                                                    <input type="submit" class="btn btn-light btn-filter" data-target="Others" name="GroupSubject" id="GroupSubject" value="Others"/>
+                                                                    
+                                                                    <br>
+                                                                    <button id="sub" type="submit" class="btn btn-success " >submit</button>
+                                                                </div>
+                                                                <script type="text/javascript">
+                                                                    $(document).ready(function () {
+                                                                        $('#sub').click(function() {
+                                                                          checked = $("input[type=radio]:checked").length;
+
+                                                                          if(!checked) {
+                                                                            alert("You must check at least one.");
+                                                                            return false;
+                                                                          }
+
+                                                                        });
+                                                                    });
+
+                                                                </script>
+                                                                <!--</div>-->
+                                                                <div class="table-container">
+                                                                    <table class="table table-filter">
+                                                                        <tbody>
+                                                                            {% if group != '' %}
+                                                                            {% for result in subjects %}
+                                                                            {% if result.groupOfSubject_id == group%}
+                                                                            <tr data-status="Programming">
+                                                                                <td>
+                                                                                    <div class="ckbox">
+                                                                                        {% comment %} <div> {% endcomment %}
+                                                                                            <input id="subj" type="radio" name="subj"
+                                                                                                value="{{result.subjectNumber}}">
+                                                                                            {% comment %} <label for="subject" id="subject"
+                                                                                                class="btn btn-" name="subject"></label> {% endcomment %}
+
+                                                                                        </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="media">
+                                                                                        <div class="media-body">
+                                                                                            <span class="media-meta " style="float: right;">{{result.credit}}</span>
+                                                                                            <h4 class="title">
+                                                                                                {{result.subjectNumber}}
+                                                                                                <span class="pull-right " style="float: right;">{{result.groupOfSubject_id}}</span>
+                                                                                            </h4>
+                                                                                            <p class="summary">{{result.subjectName}}</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            {% endif %}
+                                                                            {% endfor %}
+                                                                            {% endif %}
+
+                                                                            {% if group == '' %}
+                                                                            {% for result in subjects %}
+                                                                            <tr data-status="Programming">
+                                                                                <td>
+                                                                                    <div class="ckbox">
+                                                                                        {% comment %} <div> {% endcomment %}
+                                                                                            <input id="subj" type="radio" name="subj"
+                                                                                                value="{{result.subjectNumber}}" check()>
+                                                                                            {% comment %} <label for="subj" id="subj"
+                                                                                                class="btn btn-" name="subj"></label> {% endcomment %}
+
+                                                                                        </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="media">
+                                                                                        <div class="media-body">
+                                                                                            <span class="media-meta" style="float: right;">{{result.credit}}</span>
+                                                                                            <h4 class="title">
+                                                                                                {{result.subjectNumber}}
+                                                                                                <span class="pull-right" style="float: right;">{{result.groupOfSubject_id}}</span>
+                                                                                            </h4>
+                                                                                            <p class="summary">{{result.subjectName}}</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            {% endfor %}
+                                                                            {% endif %}
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    <!-- </div> -->
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+
+            $('.star').on('click', function () {
+                $(this).toggleClass('star-checked');
+            });
+
+            $('.ckbox label').on('click', function () {
+                $(this).parents('tr').toggleClass('selected');
+            });
+
+            $('.btn-filter').on('click', function () {
+                var $target = $(this).data('target');
+                if ($target != 'all') {
+                    $('.table tr').css('display', 'none');
+                    $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+                } else {
+                    $('.table tr').css('display', 'none').fadeIn('slow');
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

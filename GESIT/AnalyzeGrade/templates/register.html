@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+    <style type="text/css">
+        body#RegisterForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:150px;}
+
+        .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+        .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+        .register-form .form-control {
+            background: #f7f7f7 none repeat scroll 0 0;
+            border: 1px solid #d4d4d4;
+            border-radius: 4px;
+            font-size: 14px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .main-div {
+            background: #ffffff none repeat scroll 0 0;
+            border-radius: 2px;
+            margin: 10px auto 30px;
+            max-width: 50%;
+            padding: 50px 70px 70px 71px;
+        }
+
+        .register-form .form-group {
+            margin-bottom:10px;
+        }
+        /*.register-form{ text-align:center;}*/
+        
+        .register-form  .btn.btn-primary {
+            background: #f0ad4e none repeat scroll 0 0;
+            border-color: #f0ad4e;
+            color: #ffffff;
+            font-size: 14px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0;
+        }
+        
+        .register-form .btn.btn-primary.reset {
+            background: #ff9900 none repeat scroll 0 0;
+        }
+        .back { text-align: left; margin-top:10px;}
+        .back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+    </style>
+    <script>
+        var check = function() {
+          if (document.getElementById('inputPassword').value == document.getElementById('confirmPassword').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = '*matching';
+          } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = '*not matching';
+          }
+        }
+    </script>
+
+    <body id="RegisterForm">
+        <div class="container">
+            <div class="register-form">
+                <div class="main-div">
+                    <div class="panel" style="text-align: center;">
+                        <h2>Register</h2>
+                        {% if resultCheckStdId != '' %}
+                        <h3>{{resultCheckStdId}}</h3>
+                        {% endif %}
+                    </div>
+                    <form method="POST" action="">
+
+                        <div class="form-group">
+                            <p>Username</p>
+                            <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Enter your Username" required/>
+                        </div>    
+                        <div class="form-group">
+                            <p>Password</p>
+                            <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password" onkeyup='check();' required />
+                        </div>
+                        <div class="form-group">
+                            <p>Confirmpassword</p>
+                            <span id='message'></span>
+                            <input type="password" class="form-control" name="inputPassword" id="confirmPassword" placeholder="Confirmpassword" onkeyup='check();' required/>
+                        </div>
+                        <div class="form-group">
+                            <p>Firstname</p>
+                            <input type="text" class="form-control" name="inputFirstName" id="inputFirstName" placeholder="Enter your Firstname" required/>
+                        </div>
+                        <p>Lastname</p>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" name="inputLastName" id="inputLastName" placeholder="Enter your Lastname" required/>
+                        </div>
+
+                        <p>Student ID</p>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" name="inputStudentID" id="inputStudentID" placeholder="Enter your Student ID" required/>
+                        </div>
+
+                         <div class="form-group">
+                          Gender
+                          <div class="col-md-8 col-sm-9">
+                            <label>
+                                <input id="gender" name="gender" type="radio" value="Male"/> Male 
+                            </label>
+                            <label>
+                                <input id="gender" name="gender" type="radio" value="Female"/> Female 
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            Academicyears
+                            <select name="Academicyears" id="Academicyears" class="form-control" required>
+                                <option >Year</option>
+                                <option value="2555" >2555 </option>
+                                <option value="2556" >2556 </option>
+                                <option value="2557" >2557 </option>
+                                <option value="2558" >2558 </option> 
+                                <option value="2559" >2559 </option> 
+                                <option value="2560" >2560 </option>
+                                <option value="2561" >2561 </option> 
+                            </select>
+                        </div>
+                        <diV class="form-group">
+                            Department
+                            <select name="Department" id="Department" class="form-control" required/>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Computer Science">Computer Science</option>
+                            </select>
+                        </diV>
+
+                        <p>
+                        <button type="submit" class="btn btn-primary">Submit Register</button><br>&nbsp;&nbsp;
+                        <a href="/loginn" style="text-decoration:none;"><input class="btn btn-primary" value="Back to Login"></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
