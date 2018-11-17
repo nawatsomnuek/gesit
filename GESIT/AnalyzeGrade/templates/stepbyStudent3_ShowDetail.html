@@ -2,14 +2,16 @@
 <html>
 
 <head>
-    <title>step by studeent 2</title>
+    <title>step by studeent 3</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--  <script src="\static\js\step.js"  type="text/javascript" charset="utf-8"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style type="text/css">
         body {
-            overflow-x: hidden;
+            aoverflow-x: hidden;
         }
 
         #employer-post-new-job .res-steps-container .res-steps {
@@ -441,14 +443,14 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var steps = ['.res-step-two', '.res-step-three',];
+            var steps = ['.res-step-one', '.res-step-two', '.res-step-three', '.res-step-four'];
             var i = 1;
             $(".res-step-form .res-btn-orange").click(function () {
                 var getClass = $(this).attr('data-class');
                 $(".res-steps").removeClass('active');
                 $(steps[i]).addClass('active');
                 i++;
-                if (getClass != ".res-form-three") {
+                if (getClass != ".res-form-four") {
                     $(getClass).animate({
                         left: '-150%'
                     }, 500, function () {
@@ -488,115 +490,115 @@
             });
         });
 // ------------------Predict Grade-----------------------
- 
+
     </script>
 </head>
 
 <style>
     .header_area {
-            color: #FFFFFF;
-            background-color:#4e555b;
-            left: 0;
-            position: fixed;
-            width: 100%;
-            z-index: 99;
-            top: 0;
-            padding: 0 4%;
-        }
-        .menu_area .navbar-brand {
-            font-size: 30px;
-            color: #fff;
-            /*margin: 0;*/
-            /*line-height: 1;*/
-            /*padding: 0;*/
-        }
-        .menu_area #nav .nav-link {
-            color: #fff;
-            /*display: block;*/
-            font-size: 16px;
-            font-weight: 500;
-            /*border-radius: 30px;*/
-            /*-webkit-transition-duration: 500ms;*/
-            /*-o-transition-duration: 500ms;*/
-            /*transition-duration: 500ms;*/
-            /*padding: 35px 15px;*/
-        }
-        .menu_area nav ul li > a:hover {
-            color: #fb397d;
-        }
-        .center {
-            text-align: center;
-           /* border: 3px opacity:30% gray ;*/
-            padding-bottom: 20px;
-        }
-        .enter{
-            left:0;
-            position: fixed; 
-            bottom: 0%;
-            text-align: center;
-            width: 100%;
-            background-color: white;
-            padding-bottom:10px; 
-            padding-top:10px;
-        }
-        .buttom3{
-            width: 10%;
-            float: right;
-            width:20%;
-            opacity:0.6;
-            transition:0.3s;    
-        }
-        .buttom3:hover{
-            opacity:1;
-            box-shadow:0 12px 12px 0 rgba(0,0,0,0.24), 0 19px 50px 0 rgba(0,0,0,0.19);
-        }
-        .dee {
-            margin-left: 20 px;
-        }
-        .dropdown .dropbtn {
-            font-size: 16px;    
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-        
-        .navbar a:hover, .dropdown:hover .dropbtn {
-            background-color:slateblue;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .content{
-            position: relative;
-            top: 95px;
-        }
+                color: #FFFFFF;
+                background-color:#4e555b;
+                left: 0;
+                position: fixed;
+                width: 100%;
+                z-index: 99;
+                top: 0;
+                padding: 0 4%;
+            }
+            .menu_area .navbar-brand {
+                font-size: 30px;
+                color: #fff;
+                /*margin: 0;*/
+                /*line-height: 1;*/
+                /*padding: 0;*/
+            }
+            .menu_area #nav .nav-link {
+                color: #fff;
+                /*display: block;*/
+                font-size: 16px;
+                font-weight: 500;
+                /*border-radius: 30px;*/
+                /*-webkit-transition-duration: 500ms;*/
+                /*-o-transition-duration: 500ms;*/
+                /*transition-duration: 500ms;*/
+                /*padding: 35px 15px;*/
+            }
+            .menu_area nav ul li > a:hover {
+                color: #fb397d;
+            }
+            .center {
+                text-align: center;
+               /* border: 3px opacity:30% gray ;*/
+                padding-bottom: 20px;
+            }
+            .enter{
+                left:0;
+                position: fixed; 
+                bottom: 0%;
+                text-align: center;
+                width: 100%;
+                background-color: white;
+                padding-bottom:10px; 
+                padding-top:10px;
+            }
+            .buttom3{
+                width: 10%;
+                float: right;
+                width:20%;
+                opacity:0.6;
+                transition:0.3s;    
+            }
+            .buttom3:hover{
+                opacity:1;
+                box-shadow:0 12px 12px 0 rgba(0,0,0,0.24), 0 19px 50px 0 rgba(0,0,0,0.19);
+            }
+            .dee {
+                margin-left: 20 px;
+            }
+            .dropdown .dropbtn {
+                font-size: 16px;    
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+            
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color:slateblue;
+            }
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+            
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            .content{
+                position: relative;
+                top: 95px;
+            }
 </style>
 
 <body>
@@ -648,107 +650,35 @@
                 </div>
             </header>
     <section id="employer-post-new-job">
-        <div class="row">`
+        <div class="row">
+            
             <div class="container content">
-                <div class="row">
-
-                    <div class="col-12" id="container">
-                        <div class="res-steps-container">
-                        <a href="/historysGradeToPredict">
-                            <div class="res-steps res-step-one " data-class=".res-form-one" style="color: black">
-                                <div class="res-step-bar">1</div>
-                                <div class="res-progress-bar"></div>
-                                <div class="res-progress-title">Show Transcript</div>
+            <h1>Subject that use predict grade</h1>
+            <br>
+            <div class="row">
+                <!-- <form action="/delectSubject" method="POST"> -->
+                {% for result in detailPredicted %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                    <div class="our-services-wrapper mb-60">
+                        <div class="services-inner">
+                            <div class="our-services-img">
+                                <img src="https://image.flaticon.com/icons/svg/1055/1055644.svg"
+                                    width="68px" alt="">
                             </div>
-                        </a>
-                            <div class="res-steps res-step-two active" data-class=".res-form-two">
-                                <div class="res-step-bar">2</div>
-                                <div class="res-progress-bar"></div>
-                                <div class="res-progress-title">Select Subject</div>
+                            <div class="our-services-text">
+                                <h4>{{result.subject2}}</h4>
+                                <p>Subject : {{result.subject1}}{{result.subject2}}</p>
+                                <p>Pearson values : {{result.value}}</p>
                             </div>
-                            <div class="res-steps res-step-three" data-class=".res-form-three">
-                                <div class="res-step-bar">3</div>
-                                <div class="res-progress-bar"></div>
-                                <div class="res-progress-title">Predict</div>
-                            </div>
-                            <!-- <div class="res-steps res-step-four" data-class=".res-form-four">
-										<div class="res-step-bar">4</div>
-										<div class="res-progress-bar"></div>
-										<div class="res-progress-title">Add Title & Description 4</div>
-									</div> -->
-                        </div>
-                        <div class="clearfix">&nbsp;</div>
-                        <div class="clearfix">&nbsp;</div>
-
-                        <div class="res-step-form col-md-12 ">
-                            <h1 class="text-center">Step 2 &amp; Select Subject </h3>
-                                <div class="form-group">
-                                    <div class="container">
-                                        <form action="" method="POST">
-                                            <!-- <div class="grid-container">
-                                                <h2 style="text-align: center;">Select Subjects For Prediction</h2>
-                                                <div class="grid-item">
-                                                    <input type="search" class="form-control" id="search" placeholder="Subjects ID">
-                                                </div>
-                                            </div> -->
-                                            <div class="funkyradio">
-                                                {% for result in subjects %}
-                                                <div class="funkyradio-info">
-                                                    <input type="radio" name="subject" id="{{result.subjectNumber}}" 
-                                                        value="{{result.subjectNumber}}" />
-                                                    <label for="{{result.subjectNumber}}" style="padding-left: 20px;">
-                                                        Subject : {{result.subjectNumber}}<br>
-                                                        <h1 style="padding-left: 6px;">Credit : {{result.credit}}</h1>
-                                                    </label>
-                                                </div>
-                                                {% endfor %}
-                                            </div>
-
-                                            <script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    $('#sub').click(function() {
-                                                      checked = $("input[type=radio]:checked").length;
-
-                                                      if(!checked) {
-                                                        alert("You must check at least one.");
-                                                        return false;
-                                                      }
-
-                                                    });
-                                                });
-
-                                                </script>
-                             <!--                <script>
-                                              function check(f){
-                                                var a=document.getElementsByName("subject")[0].checked;
-                                                console.log(a)
-                                                    //alert(e);
-                                                    if(!a){
-                                                        alert("please choose subject!!");
-                                                            return false;
-                                                    }
-                                                  }   
-                                            </script> -->
-                                            <div class="grid-container">
-                                                <div class="grid-item">
-                                                <a href="/historysGradeToPredict">
-                                                    <button class="btn btn-deflaut" type="button">
-                                                        < Back
-                                                    </button>
-                                                </a>
-                                                    <button class="btn btn-primary" type="submit" id="sub">
-                                                        next >
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+                <!-- </form> -->
+    
             </div>
         </div>
+    </div>      
     </section>
 </body>
 

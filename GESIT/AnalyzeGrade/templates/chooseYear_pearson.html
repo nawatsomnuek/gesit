@@ -473,9 +473,9 @@
                             <!-- Menu Area -->
                             <div class="collapse navbar-collapse" id="ca-navbar">
                                 <ul class="navbar-nav ml-auto" id="nav">
-                                    <li class="nav-item active"><a class="nav-link" href="#">Home Lecturer</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/selectYearKmean">Visualization</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Relation</a></li>
+                                    <li class="nav-item active"><a class="nav-link" href="/lecturer">Home Lecturer</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/selectYearKmean">Clustering Student</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Subject Correlation</a></li>
                                     {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
                                     {% endcomment %}
                                 </ul>
@@ -525,7 +525,7 @@
                             <div class="res-steps res-step-three" data-class=".res-form-three">
                                 <div class="res-step-bar">3</div>
                                 <div class="res-progress-bar"></div>
-                                <div class="res-progress-title">Predict</div>
+                                <div class="res-progress-title">Show graph</div>
                             </div>
                             <!-- <div class="res-steps res-step-four" data-class=".res-form-four">
                                         <div class="res-step-bar">4</div>
@@ -562,11 +562,11 @@
                                                     <button class="btn standard-btn " type="radio" id="2560" name="year" value="2560">Year 2560</button>
                                                     &nbsp;&nbsp;
                                                 </div>
-                                                <br>
+                                                {% comment %} <br>
                                                 <div class="row" style="justify-content: center;">
                                                     <button class="btn standard-btn " type="radio" id="2561" name="year" value="2561">Year 2561</button>
                                                     &nbsp;&nbsp;
-                                                </div>
+                                                </div> {% endcomment %}
                                             </div>
                                             <!-- <button onclick="check()" type="submit" class="btn btn-success" style="margin-left: 15%;">submit</button> -->
                                         </form>

@@ -420,7 +420,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var steps = ['.res-step-one', '.res-step-two', '.res-step-three', '.res-step-four'];
+            var steps = ['.res-step-one', '.res-step-two', '.res-step-three'];
             var i = 1;
             $(".res-step-form .res-btn-orange").click(function () {
                 var getClass = $(this).attr('data-class');
@@ -441,21 +441,72 @@
                 }
             });
 
-            /* step back */
-            $(".res-step-form .res-btn-gray").click(function () {
-                var getClass = $(this).attr('data-class');
-                $(".res-steps").removeClass('active');
-                i--;
-                $(steps[i - 1]).addClass('active');
-                $(getClass).prev().css('left', '-150%')
-                $(getClass).animate({
-                    left: '150%'
-                }, 500);
-                $(getClass).prev().animate({
-                    left: '0%'
-                }, 500)
-            });
-        });
+
+    /* click from top bar steps */
+    {% comment %} $('.res-step-one').click(function(){
+        if(!$(this).hasClass('active')){
+            $(".res-steps").removeClass('active');
+            i = 0;
+            $(steps[i]).addClass('active');
+            i++;
+            $('.res-form-one').css('left','-150%');
+            $('.res-form-two, .res-form-three, .res-form-four').animate({
+                left: '150%'
+            }, 500);
+            $('.res-form-one').animate({
+                left: '0%'
+            }, 500);
+        }
+    });
+
+    $('.res-step-two').click(function(){
+        if(!$(this).hasClass('active')){
+            $(".res-steps").removeClass('active');
+            i = 1;
+            $(steps[i]).addClass('active');
+            i++;
+            $('.res-form-two').css('left','-150%');
+            $('.res-form-one, .res-form-three, .res-form-four').animate({
+                left: '150%'
+            }, 500);
+            $('.res-form-two').animate({
+                left: '0%'
+            }, 500);
+        }
+    });
+
+    $('.res-step-three').click(function(){
+        if(!$(this).hasClass('active')){
+            $(".res-steps").removeClass('active');
+            i = 2;
+            $(steps[i]).addClass('active');
+            i++;
+            $('.res-form-three').css('left','-150%');
+            $('.res-form-one, .res-form-two, .res-form-four').animate({
+                left: '150%'
+            }, 500);
+            $('.res-form-three').animate({
+                left: '0%'
+            }, 500);
+        }
+    });
+
+    $('.res-step-four').click(function(){
+        if(!$(this).hasClass('active')){
+            $(".res-steps").removeClass('active');
+            i = 3;
+            $(steps[i]).addClass('active');
+            i++;
+            $('.res-form-four').css('left','-150%');
+            $('.res-form-one, .res-form-two, .res-form-three').animate({
+                left: '150%'
+            }, 500);
+            $('.res-form-four').animate({
+                left: '0%'
+            }, 500);
+        }
+    });
+}); {% endcomment %}
         // ------------------ Select subject From-----------------
         $(function () {
             $('#search').on('keyup', function () {
@@ -503,10 +554,9 @@
                                     <div class="collapse navbar-collapse" id="ca-navbar">
                                         <ul class="navbar-nav ml-auto" id="nav">
                                             <li class="nav-item active"><a class="nav-link" href="/lecturer">Home Lecturer</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Relation</a></li>
-                                            {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
-                                            {% endcomment %}
+                                            <li class="nav-item"><a class="nav-link" href="/selectYearKmean">Clustering Student</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Subject Correlation</a></li>
+                                            
                                         </ul>
                                     </div>
                                 </nav>
@@ -541,11 +591,13 @@
 
                     <div class="col-12" id="container">
                         <div class="res-steps-container">
-                            <div class="res-steps res-step-one" data-class=".res-form-one">
+                        <a href="/selectYearKmean">
+                            <div class="res-steps res-step-one" data-class=".res-form-one" style="color: black">
                                 <div class="res-step-bar">1</div>
                                 <div class="res-progress-bar"></div>
                                 <div class="res-progress-title">Choose Years</div>
                             </div>
+                        </a>
                             <div class="res-steps res-step-two active" data-class=".res-form-two">
                                 <div class="res-step-bar">2</div>
                                 <div class="res-progress-bar"></div>
@@ -556,11 +608,6 @@
                                 <div class="res-progress-bar"></div>
                                 <div class="res-progress-title">Graph</div>
                             </div>
-                            <!-- <div class="res-steps res-step-four" data-class=".res-form-four">
-										<div class="res-step-bar">4</div>
-										<div class="res-progress-bar"></div>
-										<div class="res-progress-title">Add Title & Description 4</div>
-									</div> -->
                         </div>
                         <div class="clearfix">&nbsp;</div>
                         <div class="clearfix">&nbsp;</div>
@@ -586,7 +633,7 @@
                                                         <input type="submit" class="btn btn-danger btn-filter" data-target="Management" name="GroupSubject" id="GroupSubject" value="Management"/>
                                                         <input type="submit" class="btn btn-info btn-filter" data-target="Database" name="GroupSubject" id="GroupSubject" value="Database"/>
                                                         <input type="submit" class="btn btn-primary btn-filter" data-target="Math" name="GroupSubject" id="GroupSubject" value="Math"/>
-                                                        <input  type="submit" class="btn btn-light btn-filter" data-target="Others" name="GroupSubject" id="GroupSubject" value="Others"/>
+                                                        <input  type="submit" class="btn btn-light btn-filter" data-target="Other" name="GroupSubject" id="GroupSubject" value="Other"/>
                                                         
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                         <button id="sub" type="submit" class="btn btn-success" >submit</button>

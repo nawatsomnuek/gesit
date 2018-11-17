@@ -61,6 +61,7 @@ urlpatterns = [
     path('editSubject', views.page.editToPredictGrade),
     path('delectSubjectTrans', views.page.delectTrans),
     path('historyGrade/editTransGrade', views.page.editTransGrade),
+    path('historysGradeToPredict/chooseSubjectAsPredict/predictGrade/showDetailPredict', views.page.showDetailPredict),
 
 
     # path('testPredict', views.page.editToPredictGrade),

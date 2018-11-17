@@ -40,6 +40,7 @@ gradeUsrArr = []
 subjectsUsrArr = []
 subjectChooseUsrArr = []
 editSubjectToPredictGrade = []
+detailPredicted = []
 
 
 class page():
@@ -200,7 +201,7 @@ class page():
 
                 subjects = []  # subjects from subjectObjects
                 # Get list Subject from Database all subject
-                if request.POST.get('GroupSubject') is None or request.POST.get('GroupSubject') == 'AllSubject':
+                if request.POST.get('GroupSubject') is None:
                     yearr = selectYearKmeann
                     y = []
                     for result in yearr:
@@ -252,7 +253,7 @@ class page():
                             subjectObjects[isubjectObjects]['groupOfSubject_id'] = 'Other'
                         subjects.append(subjectObjects[isubjectObjects])
                         isubjectObjects = isubjectObjects + 1
-                if request.POST.get('GroupSubject') is not None and request.POST.get('GroupSubject') != 'AllSubject':
+                if request.POST.get('GroupSubject') is not None:
                     # Get list Subject from Database select group subject
                     # if request.POST.get('GroupSubject') is not None and request.POST.get('GroupSubject') != 'AllSubject':
                     #     # subjectObjects = list(Subjects.objects.filter(
@@ -338,6 +339,8 @@ class page():
                 group = ''
                 if request.POST.get('GroupSubject') is not None:
                     group = request.POST.get('GroupSubject')
+                if request.POST.get('GroupSubject') is not None and request.POST.get('GroupSubject') == 'AllSubject':
+                    group = ''              
                 subb = {
                     "subjects": subjects,
                     "years": yearr,
@@ -1325,45 +1328,77 @@ class page():
                             'value': pearsonr_coefficient.item()
                         })
                 # print(res)
-                subject1 = []
-                subject2 = []
-                value = []
-                for result in res:
-                    subject1.append(result.get('subject2'))
-                    subject2.append(result.get('subject2'))
-                    value.append(result.get('value'))
+                # subject1 = []
+                # subject2 = []
+                # value = []
+                ress = []
+                if res.__len__() < 3:
+                    resLen = res.__len__()
+                else:
+                    resLen = 3
+                iForFindTop = 1
+                while iForFindTop <= resLen:
+                    print('--- res ---')
+                    print(res)
+                    tmp = 0
+                    for result in res:
+                        if tmp <= result.get('value'):
+                            tmp = result.get('value')
+
+                    for result1 in res:
+                        if tmp == result1.get('value'):
+                            ress.append({
+                                'subject1': result1.get('subject1'),
+                                'subject2': result1.get('subject2'),
+                                'value': result1.get('value'),
+                            })
+                            res.remove(result1)
+                    iForFindTop = iForFindTop + 1
+
+                # Send values to showDetailPredict()
+                detailPredicted.clear()
+                detailPredicted.append({
+                    'subjectsValue': ress
+                })
+                # print('--- ress ---')
+                # print(ress)
+
+                        # subject1.append(result.get('subject2'))
+                        # subject2.append(result.get('subject2'))
+                        # value.append(result.get('value'))
 
 
 
                 # Data Test
-                gradeUsrStu = [
-                    {
-                        'subjectNumber': 'INT101',
-                        'grade': 4
-                    },
-                    {
-                        'subjectNumber': 'INT102',
-                        'grade': 2.5
-                    },
-                    {
-                        'subjectNumber': 'INT104',
-                        'grade': 3
-                    },
-                    {
-                        'subjectNumber': 'INT105',
-                        'grade': 3
-                    },
-                    {
-                        'subjectNumber': 'INT106',
-                        'grade': 3.5
-                    },
-                    {
-                        'subjectNumber': 'INT106',
-                        'grade': 3
-                    },
-                ]
+                # gradeUsrStu = [
+                #     {
+                #         'subjectNumber': 'INT101',
+                #         'grade': 4
+                #     },
+                #     {
+                #         'subjectNumber': 'INT102',
+                #         'grade': 2.5
+                #     },
+                #     {
+                #         'subjectNumber': 'INT104',
+                #         'grade': 3
+                #     },
+                #     {
+                #         'subjectNumber': 'INT105',
+                #         'grade': 3
+                #     },
+                #     {
+                #         'subjectNumber': 'INT106',
+                #         'grade': 3.5
+                #     },
+                #     {
+                #         'subjectNumber': 'INT106',
+                #         'grade': 3
+                #     },
+                # ]
+                
 
-                prea = res
+                prea = ress
                 sumgradeNPear = 0
                 sumValuePearson = 0
 
@@ -1425,6 +1460,18 @@ class page():
         else:
             return HttpResponseRedirect('/loginn')
     
+
+    def showDetailPredict(request):
+        detailPredictedSelf = detailPredicted[0].get('subjectsValue')
+        print('--- detailPredictedSelf ---')
+        print(detailPredictedSelf)
+
+        data = {
+            'username': request.session['name'].get('usrname'),
+            'detailPredicted': detailPredictedSelf
+        }
+        return render(request, 'stepbyStudent3_ShowDetail.html', data)
+
 
     @csrf_exempt
     def delect(request):

@@ -1,27 +1,98 @@
+<!DOCTYPE html>
 <html>
-    <head>
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+@media only screen and (max-width: 1980px) {
+    
+    /* Force table to not be like tables anymore */
+    #no-more-tables table, 
+    #no-more-tables thead, 
+    #no-more-tables tbody, 
+    #no-more-tables th, 
+    #no-more-tables td, 
+    #no-more-tables tr { 
+        display: block; 
+    }
+ 
+    /* Hide table headers (but not display: none;, for accessibility) */
+    #no-more-tables thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        text-align: center;
+    }
+ 
+    #no-more-tables tr { border: 1px solid #ccc; }
+ 
+    #no-more-tables td { 
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+        white-space: normal;
+        text-align: center;
+    }
+ 
+    #no-more-tables td:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        text-align: center;;
+        font-weight: bold;
+    }
+    .rrr{
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+    /*
+    Label the data
+    */
+    #no-more-tables td:before { content: attr(data-title); }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">
+                Pearson Correlation Values
+            </h1>
+            <h3 class="text-center">
+               Show all value that is Related to other subjects.   
+            </h3>
+        </div>
+        <div id="no-more-tables">
+            <table class="rrr col-md-10 table-bordered table-striped table-condensed cf">
+                <thead class="cf">
+                    <tr>
+                        <th>Subject</th>
+                        {% for result in allpearson %}
+                        <th>{{result.subject2}}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-title="Subject">Value</td>
+                        {% for result in allpearson %}
+                        <td data-title="{{result.subject2}}">{{result.value}}</td>
+                        {% endfor %}
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    </head>
-    <body>
-        <table>
-            <tr>
-                 <td>Subject</td>
-            </tr>
-            <tr>
-                <td>Value</td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                    {% for result in allpearson %}
-                <td>{{result.subject2}}</td>
-                {% endfor %}
-            </tr>
-            <tr>{% for result in allpearson %}
-                <td>{{result.value}}</td>
-                {% endfor %}
-            </tr>
-            
-        </table>
-    </body>
-</html>
+</body>
+</html>''

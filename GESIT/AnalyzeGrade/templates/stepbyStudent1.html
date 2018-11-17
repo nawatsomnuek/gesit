@@ -531,11 +531,11 @@
                 <div class="row">
 
                     <div class="col-12" id="container">
-                        <div class="res-steps-container">
+                        <div class="res-steps-container">                     
                             <div class="res-steps res-step-one active" data-class=".res-form-one">
                                 <div class="res-step-bar">1</div>
                                 <div class="res-progress-bar"></div>
-                                <div class="res-progress-title">Show Transcript</div>
+                                <div class="res-progress-title">View Transcripts</div>
                             </div>
                             <div class="res-steps res-step-two" data-class=".res-form-two">
                                 <div class="res-step-bar">2</div>
@@ -545,7 +545,7 @@
                             <div class="res-steps res-step-three" data-class=".res-form-three">
                                 <div class="res-step-bar">3</div>
                                 <div class="res-progress-bar"></div>
-                                <div class="res-progress-title">Predict</div>
+                                <div class="res-progress-title">Predict Graph</div>
                             </div>
                             <!-- <div class="res-steps res-step-four" data-class=".res-form-four">
 										<div class="res-step-bar">4</div>
@@ -557,7 +557,7 @@
                         <div class="clearfix">&nbsp;</div>
 
                         <div class="res-step-form col-md-12 res-form-one">
-                            <h1 class="text-center">step1 &amp; History Grade</h3>
+                            <h1 class="text-center">step1 &amp; View Transcripts</h3>
                                 <form class="form-horizontal" action="/delectSubject" method="POST">
                                     <div class="form-group">
                                         <div class="container">
@@ -574,17 +574,17 @@
                                                             <div class="our-services-text">
                                                                 <!-- <div style=" float:right; padding-right:11px;"> -->
 
-                                                                <button class ="moveright "onclick="if (confirm('Do you want to delect?')) commentDelete(1); return false"
+                                                                <!-- <button class ="moveright "onclick="if (confirm('Do you want to delect?')) commentDelete(1); return false"
                                                                     name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" value="delete">
                                                                     <p id="but" ><i class="fa fa-trash-o" ></i></p>
-                                                                </button>
+                                                                </button> -->
 
                                                                 <!-- </div> -->
-                                                                <button class ="moveright" value="edit" name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" >
+                                                                <!-- <button class ="moveright" value="edit" name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" >
                                                                 <p><i class="fa fa-pencil" ></i></p>
                                                                 </button>
                                                                 <p style="float:left; clear: right;"></p>
-                                                                <br>
+                                                                <br> -->
                                                                 <h4>{{result.subjectNumber}}</h4>
                                                                 <p>Subject : {{result.subjectName}}</p>
                                                                 <p>Credit : {{result.credit}} </p>
@@ -605,7 +605,7 @@
                                                             <div class="our-services-text">
                                                                 <div class="container">
                                                                     <a class="btn icon-btn btn-success" href="/historysGradeToPredict/insertSubjectToPredict">
-                                                                        <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+                                                                        <span class="glyphicon btn-glyphicon glyphicon-plus  text-success"></span>
                                                                         Add
                                                                     </a>
 
@@ -620,9 +620,9 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="text-center">
-                                            <a href="/student"><input type="button" class="btn btn-primary" value="< Back"></a> 
+                                            <a href="/student"><input type="button" class="btn btn-deflaut" value="< Back Home"></a> 
                                             <a href="/historysGradeToPredict/chooseSubjectAsPredict">
-                                                        <button type="button" class="btn btn-default col-xs-offset-1 btn ">Next</button>
+                                                        <button type="button" class="btn btn-primary col-xs-offset-1 btn ">Next ></button>
                                             </a>
                                         </div>
                                     </div>

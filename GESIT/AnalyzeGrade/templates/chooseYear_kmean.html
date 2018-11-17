@@ -444,7 +444,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var steps = ['.res-step-one', '.res-step-two', '.res-step-three', '.res-step-four'];
+            var steps = ['.res-step-one', '.res-step-two', '.res-step-three'];
             var i = 1;
             $(".res-step-form .res-btn-orange").click(function () {
                 var getClass = $(this).attr('data-class');
@@ -640,10 +640,9 @@
                                     <div class="collapse navbar-collapse" id="ca-navbar">
                                         <ul class="navbar-nav ml-auto" id="nav">
                                             <li class="nav-item active"><a class="nav-link" href="/lecturer">Home Lecturer</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Relation</a></li>
-                                            {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
-                                            {% endcomment %}
+                                            <li class="nav-item"><a class="nav-link" href="#">Clustering Student</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Subject Correlation</a></li>
+                                           
                                         </ul>
                                     </div>
                                 </nav>
@@ -732,10 +731,6 @@
                                                     <input type="checkbox" name="2560" id="2560" value="2560" />
                                                     <label for="2560" name="2560" id="2560">YEAR 2560</label>
                                                 </div>
-                                                <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2561" id="2561" value="2561" />
-                                                    <label for="2561" name="2561" id="2561">YEAR 2561</label>
-                                                </div>
                                             </div>
 
                                             <script type="text/javascript">
@@ -752,7 +747,7 @@
                                                 });
 
                                                 </script>
-                                            <button type="submit" class="buttom3 btn btn-success" id="sub">submit</button>
+                                            <button type="submit" class="buttom3 btn btn-primary" id="sub">submit</button>
             
                                         </form>
                                     
