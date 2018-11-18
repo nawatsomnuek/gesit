@@ -67,8 +67,15 @@
           }
         }
     </script>
+    <script>
+        function checkStdID() {
+            if {{resultCheckStdId}} == 'already'{
+                alert("This student ID have been registered");
+            }
+        }
+    </script>
 
-    <body id="RegisterForm">
+    <body id="RegisterForm" onload="checkStdID()">
         <div class="container">
             <a href="/Home/"> <h1 class="form-heading">GESIT</h1> </a>
             <div class="register-form">
@@ -80,7 +87,16 @@
                         {% endif %}
                     </div>
                     <form method="POST" action="">
-
+                        {% if resultCheckStdId == 'already' %}
+                        <script type="text/javascript">
+                    alert("This usrename have been registered")
+                        </script>
+                        {% endif %}
+                        {% if resultCheckUsr == 'already' %}
+                        <script type="text/javascript">
+                    alert("This student ID have been registered")
+                        </script>
+                        {% endif %}
                         <div class="form-group">
                             <p>Username</p>
                             <input type="text" class="form-control" onkeyup="" name="inputUsername" id="inputUsername" placeholder="Enter your Username" required/>

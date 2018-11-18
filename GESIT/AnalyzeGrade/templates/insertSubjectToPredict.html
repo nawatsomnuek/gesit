@@ -273,7 +273,7 @@
                             <div class="collapse navbar-collapse" id="ca-navbar">
                                 <ul class="navbar-nav ml-auto" id="nav">
                                     <li class="nav-item active"><a class="nav-link" href="/student">Home Student</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/historysGradeToPredict">Prediction</a></li>
                                     {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
                                     {% endcomment %}
                                 </ul>
@@ -340,44 +340,20 @@
 
 
                 <script type="text/javascript">
-                    $(document).ready(function () {
-                        $("#sub").click(function () {
-                            checked = $("input[type=checkbox]:checked").length;                            
-                            chooseGrade = $("input[class=choosegrade]");
+                
+                                                $(document).ready(function () {
+                                                    $('#sub').click(function() {
+                                                      checked = $("input[type=checkbox]:checked").length;
 
-                            // if (!checked || chooseGrade == null) {
-                            //     alert("You must check at least one.");
-                            //     if (checked == true && chooseGrade == null) {
-                            //         alert("You must check at least one.");
-                            //     }
-                            //     return false;
-                            // }
+                                                      if(!checked) {
+                                                        alert("You must check at least one.");
+                                                        return false;
+                                                      }
 
-                            if (!checked || chooseGrade.value == "5"){
-                                alert("You must check at least one.");
-                            }
-                        
+                                                    });
+                                                });
 
 
-                        });
-                    });
-
-
-                        if ({{error}} == "errorNull"){
-                            alert("You must choose grade");
-                        }    
-
-
-                    // $(document).ready(function () {
-                    //     $('.choosegrade').click(function() {
-                    //         checked = $("input[type=checkbox]:checked").length;
-
-                    //         if(!checked) {
-                    //         alert("You must select grade");
-                    //         return false;
-                    //         }
-                    //     });
-                    // });    
 
 
                 </script>

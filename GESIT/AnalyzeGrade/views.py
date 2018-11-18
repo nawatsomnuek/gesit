@@ -102,11 +102,17 @@ class page():
                     addUsr.save()
                     return HttpResponseRedirect('/regisSuccess')
                 else:
-                    resultCheckStdId = 'This student ID have been registered'
+                    # resultCheckStdId = 'This student ID have been registered' 
                     data = {
-                        'resultCheckStdId': resultCheckStdId
+                        'resultCheckStdId': "already"
                     }
-                    render(request, 'register.html', data)
+                    return render(request, 'register.html', data)
+            else:
+                data = {
+                    'resultCheckUsr': "already"
+                }
+                return render(request, 'register.html', data)
+
         resultCheckStdId = ''
         data = {
             'resultCheckStdId': resultCheckStdId
@@ -1130,7 +1136,7 @@ class page():
                 gradeUsrArr.clear()
                 datas = []
                 count = 1
-                amountSub = 1
+                amountSub = 0
                 for result in gradeUserStudent:
                     subInDB = list(Subjects.objects.filter(
                         id=result.get('subject_id')).values())
