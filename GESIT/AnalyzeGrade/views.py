@@ -113,8 +113,10 @@ class page():
         }
         return render(request, 'register.html', data)
 
-    
+
+    @csrf_exempt    
     def regisSuccess(request):
+        
         return render(request, 'Sucessful_register.html')
 
 
@@ -288,10 +290,10 @@ class page():
                     te = []
                     first = []
                     for result in y:
-                        print(result.get('year'))
+                        # print(result.get('year'))
                         # print(result.get('subject'))
-                        for res in result.get('subject'):
-                            print(res.get('subject_id'))
+                        # for res in result.get('subject'):
+                            # print(res.get('subject_id'))
                         if first != []:
                             for res in result.get('subject'):
                                 for a in first:
@@ -360,12 +362,14 @@ class page():
                         j = j + 1
                 if checked != []:
                     # Get data form Database
+                    print('--- selectYearKmeann ---')
+                    print(selectYearKmeann)
                     subjectss = []
                     for result in checked:
                         subjectss.append({
                             "subjectNumber": result,
                             "gradeSubject": list(Grade.objects.filter(
-                                students__academicYears__years='2555',
+                                students__academicYears__years=selectYearKmeann[0],
                                 subjects__subjectNumber=result).values()
                             )
                         })
@@ -768,9 +772,12 @@ class page():
                 # if 'name' in request.session:
                 selectYearKmeann.clear()
                 yr = ['2555', '2556', '2557', '2558', '2559', '2560', '2561']
-                for result in yr:
-                    if request.POST.get(result) is not None:
-                        selectYearKmeann.append(request.POST.get(result))
+                # for result in yr:
+                #     if request.POST.get(result) is not None:
+                #         selectYearKmeann.append(request.POST.get(result))
+
+                if request.POST.get('yearrr') is not None:
+                    selectYearKmeann.append(request.POST.get('yearrr'))
 
                 if selectYearKmeann != []:
                     return HttpResponseRedirect('/selectYearKmean/selectSubject')
@@ -964,7 +971,10 @@ class page():
         return render(request, 'GraphPearson.html')
 
     def logout(request):
-        del request.session['name']
+        if 'name' in request.session:
+            del request.session['name']
+        else:
+            return HttpResponseRedirect('/Home/')
         return HttpResponseRedirect('/Home/')
 
     # Predict
@@ -1070,13 +1080,20 @@ class page():
 
                 subj = []
                 for result in subjects:
-                    if request.POST.get(result.get('subjectNumber')) is not None and request.POST.get(result.get('subjectName')) == 'on':
+                    if request.POST.get(result.get('subjectNumber')) is not None and request.POST.get(result.get('subjectName')) == 'on' and request.POST.get(result.get('subjectNumber')) != "5":
                         request.POST.get(result.get('subjectNumber'))
                         subj.append({
                             'grade': request.POST.get(result.get('subjectNumber')),
                             'subject_id': result.get('id'),
                             'userStudent_id': request.session['name'].get('userID'),
                         })
+
+                    if request.POST.get(result.get('subjectNumber')) is not None and request.POST.get(result.get('subjectName')) == 'on' and request.POST.get(result.get('subjectNumber')) == "5":
+                        data = {
+                            'username': request.session['name'].get('usrname'), 
+                            'subjects': subjects,
+                            'error': "errorNull"
+                        }
 
                 if subj != []:
                     count = 0
@@ -1179,18 +1196,27 @@ class page():
 
                 data = {
                     'username': request.session['name'].get('usrname'),
-                    'subjects': subjects
+                    'subjects': subjects,
+                    'error':''
                 }
                 
                 subj = []
                 for result in subjects:
-                    if request.POST.get(result.get('subjectNumber')) is not None and request.POST.get(result.get('subjectName')) == 'on':
+                    if request.POST.get(result.get('subjectNumber')) is not None and request.POST.get(result.get('subjectName')) == 'on' and request.POST.get(result.get('subjectNumber')) != '5':
                         request.POST.get(result.get('subjectNumber'))
                         subj.append({
                             'grade': request.POST.get(result.get('subjectNumber')),
                             'subject_id': result.get('id'),
                             'userStudent_id': request.session['name'].get('userID'),
                         })
+                    
+                    if request.POST.get(result.get('subjectNumber')) is not None and request.POST.get(result.get('subjectName')) == 'on' and request.POST.get(result.get('subjectNumber')) == "5":
+                        data = {
+                            'username': request.session['name'].get('usrname'), 
+                            'subjects': subjects,
+                            'error': "errorNull"
+                        }
+                        return render(request, 'insertSubjectToPredict.html', data) 
                         # addGrade = GradeUserStudent(grade=request.POST.get(result.get('subjectNumber')), subject_id=result.get(
                         #     'id'), userStudent_id=request.session['name'].get('userID'))
                         # addGrade.save()
@@ -1414,7 +1440,7 @@ class page():
                             sumgradeNPear = sumgradeNPear + resP
                             sumValuePearson = sumValuePearson + resultPrea.get('value')
 
-
+                resultPredict = 0
                 if sumgradeNPear != 0 and sumValuePearson != 0:
                     resultPredict = sumgradeNPear / sumValuePearson
                     # print('--- resultPredict ---')

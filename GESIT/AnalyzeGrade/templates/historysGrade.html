@@ -190,7 +190,7 @@
         }
          .content{
                 position: relative;
-                top: 95px;
+                top: 35px;
             }
         .moveright{
             float:right; 
@@ -247,6 +247,8 @@
     <h1 style="text-align:center">Historys Grade</h1> <br>
 
     <div class="container content">
+            <h4 class="text-center">TRANSCRIPT</h4>
+            <br>
         <form action="/delectSubjectTrans" method="POST">
             <div class="row">
                 {% for result in datas %}
@@ -283,7 +285,7 @@
                             </div>
                             <div class="our-services-text">
                                 <div class="container">
-                                    <a class="btn icon-btn btn-success" href="/historyGrade/insertSubject">
+                                    <a class="btn icon-btn btn-primary" href="/historyGrade/insertSubject">
                                         <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
                                         Add
                                     </a>
@@ -299,4 +301,4 @@
         <div class="grid-container">
             <div class="grid-item">
                 <a href="/student"><button class="btn btn-primary">
-                        < Back</button> </a> </div> </div> </div> </body> </html>
+                        < Back to Home</button> </a> </div> </div> </div> </body> </html>

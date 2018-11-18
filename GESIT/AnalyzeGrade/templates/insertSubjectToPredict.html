@@ -15,7 +15,7 @@
 </head>
 </head>
 <style>
-    @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css')
+    /* @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css"); */
         .grid-container {
             display: grid;
             grid-template-columns: auto;
@@ -139,7 +139,7 @@
     </style>
 
 <style>
-                            .header_area {
+    .header_area {
                                 color: #FFFFFF;
                                 background-color:#4e555b;
                                 left: 0;
@@ -244,17 +244,17 @@
                                 top: 50px;
                             }
                 </style>
-                <script>
-                     function check(){
-                        var a = document.getElementsByClassName("choosegrade").value;
-                        console.log(a)
-                            //alert(e);
-                            if(!a){
-                                alert("please choose subject!!");
-                                    return false;
-                            }
-                          }
-                </script>
+<script>
+    function check() {
+        var a = document.getElementsByClassName("choosegrade").value;
+        console.log(a)
+        //alert(e);
+        if (!a) {
+            alert("please choose subject!!");
+            return false;
+        }
+    }
+</script>
 
 <body>
     <header class="header_area animated">
@@ -272,8 +272,8 @@
                             <!-- Menu Area -->
                             <div class="collapse navbar-collapse" id="ca-navbar">
                                 <ul class="navbar-nav ml-auto" id="nav">
-                                            <li class="nav-item active"><a class="nav-link" href="/student">Home Student</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/historysGradeToPredict">Prediction</a></li>
+                                    <li class="nav-item active"><a class="nav-link" href="/student">Home Student</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li>
                                     {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
                                     {% endcomment %}
                                 </ul>
@@ -293,10 +293,10 @@
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#">profile</a>
-                            <div class="dropdown-divider"></div>
+                            <a href="/profile">profile</a>
+                            {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                             <a href="/logout">log out</a>
-                            <a href="#"></a>
+                            {% comment %} <a href="#"></a> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -311,12 +311,13 @@
             <div class="funkyradio">
                 {% for result in subjects %}
                 <div class="funkyradio-info">
-                    <input type="checkbox" class="choosegrade" name="{{result.subjectName}}" id="{{result.subjectName}}" />
+                    <input type="checkbox" name="{{result.subjectName}}" id="{{result.subjectName}}" />
                     <label for="{{result.subjectName}}" style="padding-left: 50px;">
 
                         Subject : {{result.subjectNumber}} <br>Credit : 3
-                        <br>Grade : <select name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" class="chop">
-                            <option value="">Select</option>
+                        <br>Grade : 
+                        <select name="{{result.subjectNumber}}" id="{{result.subjectNumber}}" class="choosegrade">
+                            <!-- change--><option value="5">---Select---</option>
                             <option value="4">A</option>
                             <option value="3.5">B+</option>
                             <option value="3">B</option>
@@ -331,57 +332,55 @@
 
                 </div>
                 {% endfor %}
-        
+
 
                 <script type="text/javascript">
                     $(document).ready(function () {
-                        $('.choosegrade').click(function() {
-                            checked = $("input[type=checkbox]:checked").length;
+                        $("#sub").click(function () {
+                            checked = $("input[type=checkbox]:checked").length;                            
+                            chooseGrade = $("input[class=choosegrade]");
 
-                            if(!checked) {
-                            alert("You must check at least one.");
-                            return false;
+                            // if (!checked || chooseGrade == null) {
+                            //     alert("You must check at least one.");
+                            //     if (checked == true && chooseGrade == null) {
+                            //         alert("You must check at least one.");
+                            //     }
+                            //     return false;
+                            // }
+
+                            if (!checked || chooseGrade.value == 5){
+                                alert("You must check at least one.");
                             }
+
 
                         });
                     });
 
-                     $(document).ready(function () {
-                        $('#sub').click(function() {
-                            var e = document.getElementsByClassName('chop');
-                            var strUser = e[e.selectedIndex].value;
-                            console.log("--- strUser ---")
-                            console.log(strUser)
+                    // $(document).ready(function () {
+                    //     $('.choosegrade').click(function() {
+                    //         checked = $("input[type=checkbox]:checked").length;
 
-                            if(strUser==11111 ){
-                                alert("You must select grade and checkbox");
-                                return false;
-                            }
+                    //         if(!checked) {
+                    //         alert("You must select grade");
+                    //         return false;
+                    //         }
+                    //     });
+                    // });    
 
-                        });
-                    }); 
-                    $(document).ready(function () {
-                        $('#sub').click(function() {
-                            checked = $("input[type=checkbox]:checked").length;
 
-                            if(!checked) {
-                            alert("You must check at least one.");
-                            return false;
-                            }
-
-                        });
-                    });
                 </script>
 
             </div>
             <div class="grid-container">
                 <div class="grid-item">
-                    <a href="/historysGradeToPredict"><button  class="btn btn-default" type="button">
-                            < Back</button> </a> <button id="sub" return false" type="submit" class="btn btn-primary">Next >
+                    <a href="/historysGradeToPredict"><button class="btn btn-default" type="button">
+                            < Back to predict</button> </a> <button id="sub" return false type="submit" class="btn btn-primary">Next
+                                >
                         </button></a>
                 </div>
             </div>
         </form>
     </div>
 </body>
+
 </html>

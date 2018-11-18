@@ -640,7 +640,7 @@
                                     <div class="collapse navbar-collapse" id="ca-navbar">
                                         <ul class="navbar-nav ml-auto" id="nav">
                                             <li class="nav-item active"><a class="nav-link" href="/lecturer">Home Lecturer</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Clustering Student</a></li>
+                                            {% comment %} <li class="nav-item"><a class="nav-link" href="#">Clustering Student</a></li> {% endcomment %}
                                             <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Subject Correlation</a></li>
                                            
                                         </ul>
@@ -708,33 +708,33 @@
                                         <form method="POST">
                                             <div class="funkyradio">
                                                 <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2555" id="2555" value="2555"  />
-                                                    <label for="2555" name="2555" id="2555">YEAR 2555</label>
+                                                    <input type="radio" name="yearrr" id="2555" value="2555"  />
+                                                    <label for="2555" name="yearrr" id="2555">YEAR 2555</label>
                                                 </div>
                                                 <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2556" id="2556" value="2556" />
-                                                    <label for="2556" name="2556" id="2556">YEAR 2556</label>
+                                                    <input type="radio" name="yearrr" id="2556" value="2556" />
+                                                    <label for="2556" name="yearrr" id="2556">YEAR 2556</label>
                                                 </div>
                                                 <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2557" id="2557" value="2557" />
-                                                    <label for="2557" name="2557" id="2557">YEAR 2557</label>
+                                                    <input type="radio" name="yearrr" id="2557" value="2557" />
+                                                    <label for="2557" name="yearrr" id="2557">YEAR 2557</label>
                                                 </div>
                                                 <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2558" id="2558" value="2558" />
-                                                    <label for="2558" name="2558" id="2558">YEAR 2558</label>
+                                                    <input type="radio" name="yearrr" id="2558" value="2558" />
+                                                    <label for="2558" name="yearrr" id="2558">YEAR 2558</label>
                                                 </div>
                                                 <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2559" id="2559" value="2559" />
-                                                    <label for="2559" name="2559" id="2559">YEAR 2559</label>
+                                                    <input type="radio" name="yearrr" id="2559" value="2559" />
+                                                    <label for="2559" name="yearrr" id="2559">YEAR 2559</label>
                                                 </div>
                                                 <div class="funkyradio-info">
-                                                    <input type="checkbox" name="2560" id="2560" value="2560" />
-                                                    <label for="2560" name="2560" id="2560">YEAR 2560</label>
+                                                    <input type="radio" name="yearrr" id="2560" value="2560" />
+                                                    <label for="2560" name="yearrr" id="2560">YEAR 2560</label>
                                                 </div>
                                             </div>
 
                                             <script type="text/javascript">
-                                                $(document).ready(function () {
+                                                {% comment %} $(document).ready(function () {
                                                     $('#sub').click(function() {
                                                       checked = $("input[type=checkbox]:checked").length;
 
@@ -744,7 +744,7 @@
                                                       }
 
                                                     });
-                                                });
+                                                }); {% endcomment %}
 
                                                 </script>
                                             <button type="submit" class="buttom3 btn btn-primary" id="sub">submit</button>

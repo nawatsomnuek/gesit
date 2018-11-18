@@ -309,8 +309,10 @@
             color: #fff;
             background-color: #5bc0de;
         }
+        /* .btn-primary{
+            background: indigo;
 
-        
+        } */
     </style>
 
 
@@ -494,8 +496,8 @@
                             <div class="collapse navbar-collapse" id="ca-navbar">
                                 <ul class="navbar-nav ml-auto" id="nav">
                                     <li class="nav-item active"><a class="nav-link" href="/student">Home Student</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li>
-                                    <!-- <li class="nav-item"><a class="nav-link" href="#">Relation</a></li> -->
+                                    <!-- <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li> -->
+                                    <li class="nav-item"><a class="nav-link" href="/historyGrade">Transcript</a></li>
                                     {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
                                     {% endcomment %}
                                 </ul>
@@ -529,8 +531,9 @@
         <div class="row">
             <div class="container content">
                 <div class="row">
-
+                    
                     <div class="col-12" id="container">
+                            <h4 class="text-center">PREDICT GRADE</h4>
                         <div class="res-steps-container">                     
                             <div class="res-steps res-step-one active" data-class=".res-form-one">
                                 <div class="res-step-bar">1</div>
@@ -604,7 +607,7 @@
                                                             </div>
                                                             <div class="our-services-text">
                                                                 <div class="container">
-                                                                    <a class="btn icon-btn btn-success" href="/historysGradeToPredict/insertSubjectToPredict">
+                                                                    <a class="btn icon-btn btn-primary" href="/historysGradeToPredict/insertSubjectToPredict">
                                                                         <span class="glyphicon btn-glyphicon glyphicon-plus  text-success"></span>
                                                                         Add
                                                                     </a>
@@ -620,7 +623,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="text-center">
-                                            <a href="/student"><input type="button" class="btn btn-deflaut" value="< Back Home"></a> 
+                                            <!-- <a href="/student"><input type="button" class="btn btn-deflaut" value="< Back Home"></a>  -->
                                             <a href="/historysGradeToPredict/chooseSubjectAsPredict">
                                                         <button type="button" class="btn btn-primary col-xs-offset-1 btn ">Next ></button>
                                             </a>
