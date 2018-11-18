@@ -1130,6 +1130,7 @@ class page():
                 gradeUsrArr.clear()
                 datas = []
                 count = 1
+                amountSub = 1
                 for result in gradeUserStudent:
                     subInDB = list(Subjects.objects.filter(
                         id=result.get('subject_id')).values())
@@ -1170,10 +1171,12 @@ class page():
                     datas.append(data)
                     gradeUsrArr.append(dataa)
                     subjectsUsrArr.append(subInDB[0].get('subjectNumber'))
+                    amountSub = amountSub + 1
                     count = count + 1
                 showData = {
                     'username': request.session['name'].get('usrname'),
-                    'datas': datas
+                    'datas': datas,
+                    'checkAmountOfSubject': amountSub
                 }
                 return render(request, 'stepbyStudent1.html', showData)
             else:
@@ -1670,7 +1673,7 @@ class page():
                     gradeStd.grade = request.POST.get('subGrade')
                     gradeStd.save()
                     return HttpResponseRedirect('/historyGrade')
-                return render(request, 'EditToPredictGrade.html', data)
+                return render(request, 'editToPredictGrade.html', data)
             else:
                 return HttpResponseRedirect('/Home/')
         else:

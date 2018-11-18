@@ -560,8 +560,8 @@
             padding-top:10px;
         }
         .buttom3{
-            opacity:0.6;
-            transition:0.3s;
+            {% comment %} opacity:0.6;
+            transition:0.3s; {% endcomment %}
             text-align: center;
             align-items: center;
             /*vertical-align:middle;*/
@@ -570,10 +570,10 @@
             margin-bottom: 10px; 
 
         }
-        .buttom3:hover{
+        {% comment %} .buttom3:hover{
             opacity:1;
             box-shadow:0 12px 12px 0 rgba(0,0,0,0.24), 0 19px 50px 0 rgba(0,0,0,0.19);
-        }
+        } {% endcomment %}
         .dee {
             margin-left: 20 px;
         }
@@ -676,6 +676,7 @@
                 <div class="row">
 
                     <div class="col-12" id="container">
+                    <h4 class="text-center">Clustering Student</h4>
                         <div class="res-steps-container">
                             <div class="res-steps res-step-one active" data-class=".res-form-one">
                                 <div class="res-step-bar">1</div>

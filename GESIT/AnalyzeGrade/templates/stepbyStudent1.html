@@ -624,8 +624,10 @@
                                     <div class="form-group">
                                         <div class="text-center">
                                             <!-- <a href="/student"><input type="button" class="btn btn-deflaut" value="< Back Home"></a>  -->
+                                            {% if checkAmountOfSubject > 2 %}
                                             <a href="/historysGradeToPredict/chooseSubjectAsPredict">
                                                         <button type="button" class="btn btn-primary col-xs-offset-1 btn ">Next ></button>
+                                            {% endif %}
                                             </a>
                                         </div>
                                     </div>

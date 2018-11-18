@@ -187,7 +187,7 @@
                                             }
                                             .content{
                                                 position: relative;
-                                                margin-top: 9%;
+                                                margin-top: 6%;
                                             }
                                 </style>
 
@@ -256,8 +256,8 @@
                                 <p>Subject : {{subjectName}}</p>
                                 <p>Credit : {{credit}} </p>
                                 <p>Grade : {{grade}} </p>
-                                <br>Grade : <select name="subGrade" id="subGrade">
-                                    <option selected>-- Select ---</option>
+                                <br>Grade : <select name="subGrade" id="subGrade" required>
+                                    <option value="">-- Select ---</option>
                                     <option value="4">A</option>
                                     <option value="3.5">B+</option>
                                     <option value="3">B</option>
@@ -293,8 +293,11 @@
             </div>
             <div class="grid-container">
                 <div class="grid-item">
+                    <a href="/historyGrade"><input type="button" class="btn btn-light" value="< Back to Transcript"/>
+                        </a>
                     <button type="submit" class="btn btn-primary">
-                        Edit</button> </div>
+                        Submit</button> 
+                </div>
             </div>
         </div>
     </form>

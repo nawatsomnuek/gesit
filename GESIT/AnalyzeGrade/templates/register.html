@@ -83,11 +83,11 @@
 
                         <div class="form-group">
                             <p>Username</p>
-                            <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Enter your Username" required/>
+                            <input type="text" class="form-control" onkeyup="" name="inputUsername" id="inputUsername" placeholder="Enter your Username" required/>
                         </div>    
                         <div class="form-group">
                             <p>Password</p>
-                            <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password" onkeyup='check();' required />
+                            <input type="password" title="Must contain at least one number and one uppercase and lowercase letter,and at least 8 or more characters" class="form-control" pattern="(?=.*\d)(?=.[a-z])(?=.*[A-Z]).{8,}" name="inputPassword" id="inputPassword" placeholder="Password" onkeyup='check();' required />
                         </div>
                         <div class="form-group">
                             <p>Confirmpassword</p>
@@ -96,19 +96,27 @@
                         </div>
                         <div class="form-group">
                             <p>Firstname</p>
-                            <input type="text" class="form-control" name="inputFirstName" id="inputFirstName" placeholder="Enter your Firstname" required/>
+                            <input type="text" pattern="[A-Z,a-z]{1,30}" size=4 title="please fill only characters 30 char" class="form-control" name="inputFirstName" id="inputFirstName" placeholder="Enter your Firstname" required/>
                         </div>
                         <p>Lastname</p>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" name="inputLastName" id="inputLastName" placeholder="Enter your Lastname" required/>
-                        </div>
+                            <input type="text" pattern="[A-Z,a-z]{1,50}" title="please fill only characters 50 char" class="form-control" name="inputLastName" id="inputLastName" placeholder="Enter your Lastname" required/>
+                        </div> 
 
                         <p>Student ID</p>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" name="inputStudentID" id="inputStudentID" placeholder="Enter your Student ID" required/>
+                            <input type="text" pattern="[0-9]{11,11}" title="please fill only number 11 number" class="form-control" name="inputStudentID" id="inputStudentID" placeholder="Enter your Student ID" required/>
                         </div>
+
+                        <script>
+                            function myFunction() {
+                                var str = "Hello World!";
+                                var n = str.length;
+                                document.getElementById("demo").innerHTML = n;
+                            }
+                        </script>
 
                          <div class="form-group">
                           Gender

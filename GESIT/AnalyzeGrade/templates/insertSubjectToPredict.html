@@ -308,6 +308,11 @@
             <div class="grid-container" style="margin-top: 5% ">
                 <h2 style="text-align: center;">Add Subjects</h2>
             </div>
+            {% if error ==  "errorNull"%}
+            <script type="text/javascript">
+            alert("You must choose grade");
+            </script>
+            {%endif%}
             <div class="funkyradio">
                 {% for result in subjects %}
                 <div class="funkyradio-info">
@@ -348,13 +353,20 @@
                             //     return false;
                             // }
 
-                            if (!checked || chooseGrade.value == 5){
+                            if (!checked || chooseGrade.value == "5"){
                                 alert("You must check at least one.");
                             }
+                        
 
 
                         });
                     });
+
+
+                        if ({{error}} == "errorNull"){
+                            alert("You must choose grade");
+                        }    
+
 
                     // $(document).ready(function () {
                     //     $('.choosegrade').click(function() {
