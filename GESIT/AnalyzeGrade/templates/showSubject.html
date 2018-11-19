@@ -194,7 +194,7 @@
         }
          .content{
                 position: relative;
-                top: 95px;
+                top: 150px;
             }
       /*----------------table-------------------*/
         label a{
@@ -224,10 +224,7 @@
                 top: 0;
                 padding: 0 4%;
             }
-            .content{
-                position: relative;
-                top: 95px;
-            }
+            
             .menu_area .navbar-brand {
                 font-size: 30px;
                 color: #fff;
@@ -477,14 +474,19 @@
                         console.log(a)
                             //alert(e);
                             if(!a){
-                                alert("please choose subject!!");
+                                alert("Please choose subject!!");
                                     return false;
                             }
                           }
-                </script>
+    </script>
 
 
 <body>
+        {% if ifCheckSelf == 'lessThanThree' %}
+        <script>
+            alert("Please choose at lease 3 subjects")
+        </script>
+        {% endif %}
         <header class="header_area animated">
                 <div class="container-fluid con">
                     <div class="row align-items-center">
@@ -501,8 +503,8 @@
                                     <div class="collapse navbar-collapse" id="ca-navbar">
                                         <ul class="navbar-nav ml-auto" id="nav">
                                             <li class="nav-item active"><a class="nav-link" href="/lecturer">Home Lecturer</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Relation</a></li>
+                                            {% comment %} <li class="nav-item"><a class="nav-link" href="#">Prediction</a></li> {% endcomment %}
+                                            <li class="nav-item"><a class="nav-link" href="/selectYearPreason">Subject Correlation</a></li>
                                             {% comment %} <li class="nav-item"><a class="nav-link" href="predictgrade.html">prediction</a></li>
                                             {% endcomment %}
                                         </ul>
@@ -538,7 +540,8 @@
                 <div class="row">
 
                     <div class="col-12" id="container">
-                        <h4 class="text-center">Clustering Student</h4>
+                        <h4 class="text-center">CLUSTERING STUDENT</h4>
+                        <br>
                         <div class="res-steps-container">
                         <a href="/selectYearKmean">
                             <div class="res-steps res-step-one" data-class=".res-form-one" style="color: black">
@@ -567,9 +570,9 @@
                         <div class="clearfix">&nbsp;</div>
 
                         <div class="res-step-form col-md-12 res-form-one">
-                            <h1 class="text-center">Please choose a year</h3>
+                            
                                 <h1>
-                                        Choose Subject Year
+                                        Select Subjects Year
                                         {% for resultYear in years%}
                                         {{resultYear}}
                                         {% endfor %}
@@ -587,10 +590,10 @@
                                                         <input type="submit" class="btn btn-danger btn-filter" data-target="Management" name="GroupSubject" id="GroupSubject" value="Management"/>
                                                         <input type="submit" class="btn btn-info btn-filter" data-target="Database" name="GroupSubject" id="GroupSubject" value="Database"/>
                                                         <input type="submit" class="btn btn-primary btn-filter" data-target="Math" name="GroupSubject" id="GroupSubject" value="Math"/>
-                                                        <input  type="submit" class="btn btn-light btn-filter" data-target="Others" name="GroupSubject" id="GroupSubject" value="Others"/>
+                                                        <input  type="submit" class="btn btn-light btn-filter" data-target="Other" name="GroupSubject" id="GroupSubject" value="Other"/>
                                                         
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <button id="sub" type="submit" class="btn btn-success" >submit</button>
+                                                        <button id="sub" type="submit" class="btn btn-primary" >submit</button>
                                                     </div>
                                                     <!--</div>-->
                                                     <div class="table-container">

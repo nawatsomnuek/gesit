@@ -25,6 +25,8 @@ numberOfGroup = []
 checked = []
 amountOfMenberInGroup = []
 amountOfMenberInGroupC = []
+ifCheck = []
+ifCheckYearKmean = []
 # Pearson
 gradeFromDBForPearson = []
 selectYearPearsonn = []
@@ -206,6 +208,17 @@ class page():
                 checked.clear()
                 amountOfMenberInGroup.clear()
                 amountOfMenberInGroupC.clear()
+                ifCheckYearKmean.clear()
+                ifCheckSelf = ''
+                ifCheckNumSelf = 0
+                print('--- ifCheck 212 ---')
+                print(ifCheck.__len__())
+                if ifCheck.__len__() != 0:
+                    ifCheckSelf = 'lessThanThree'
+                    ifCheckNumSelf = 2
+                ifCheck.clear()
+                print('--- ifCheck 218 ---')
+                print(ifCheck.__len__())                
 
                 subjects = []  # subjects from subjectObjects
                 # Get list Subject from Database all subject
@@ -348,15 +361,18 @@ class page():
                 if request.POST.get('GroupSubject') is not None:
                     group = request.POST.get('GroupSubject')
                 if request.POST.get('GroupSubject') is not None and request.POST.get('GroupSubject') == 'AllSubject':
-                    group = ''              
+                    group = ''
                 subb = {
                     "subjects": subjects,
                     "years": yearr,
                     'username': request.session['name'].get('usrname'),
-                    'group': group
+                    'group': group,
+                    'ifCheckSelf':ifCheckSelf
                 }
-                print('--- group ---')
-                print(group)
+                # print('--- ifCheckSelf---')
+                # print(ifCheckSelf)
+                # print('--- group ---')
+                # print(group)
                 # When choose subjects
                 # checked = []
                 j = 0
@@ -367,57 +383,71 @@ class page():
                                 subjectObjects[j].get('subjectNumber')))
                         j = j + 1
                 if checked != []:
-                    # Get data form Database
-                    print('--- selectYearKmeann ---')
-                    print(selectYearKmeann)
-                    subjectss = []
-                    for result in checked:
-                        subjectss.append({
-                            "subjectNumber": result,
-                            "gradeSubject": list(Grade.objects.filter(
-                                students__academicYears__years=selectYearKmeann[0],
-                                subjects__subjectNumber=result).values()
-                            )
-                        })
-                    # Make data to equal data
-                    tmp = 1000000000
-                    for result in subjectss:
-                        if result.get('gradeSubject').__len__() < tmp:
-                            tmp = result.get('gradeSubject').__len__()
-                    arr = []
-                    for result in subjectss:
-                        array = result.get('gradeSubject')
-                        res = array.__len__() - tmp
-                        if res != 0:
-                            while res > 0:
-                                array.remove(array[array.__len__()-1])
-                                res = res - 1
-                        arr.append({
-                            'sub': result.get('subjectNumber'),
-                            'subb': array
-                        })
+                    print('--- checked.__len__() 384 ---')
+                    print(checked.__len__())
+                    # ifCheck.append(checked.__len__()+1)
+                    if checked.__len__() >= 3:
+                        # Get data form Database
+                        print('--- selectYearKmeann ---')
+                        print(selectYearKmeann)
+                        subjectss = []
+                        for result in checked:
+                            subjectss.append({
+                                "subjectNumber": result,
+                                "gradeSubject": list(Grade.objects.filter(
+                                    students__academicYears__years=selectYearKmeann[0],
+                                    subjects__subjectNumber=result).values()
+                                )
+                            })
+                        # Make data to equal data
+                        tmp = 1000000000
+                        for result in subjectss:
+                            if result.get('gradeSubject').__len__() < tmp:
+                                tmp = result.get('gradeSubject').__len__()
+                        arr = []
+                        for result in subjectss:
+                            array = result.get('gradeSubject')
+                            res = array.__len__() - tmp
+                            if res != 0:
+                                while res > 0:
+                                    array.remove(array[array.__len__()-1])
+                                    res = res - 1
+                            arr.append({
+                                'sub': result.get('subjectNumber'),
+                                'subb': array
+                            })
 
-                    d = {}
-                    subjectSelected.clear()
-                    for result in arr:
-                        ddd = []
-                        subjectSelected.append(result.get('sub'))
-                        for result1 in result.get('subb'):
-                            ddd.append(result1.get('grade'))
-                        # print(ddd)
-                        d.update({result.get('sub'): pd.Series(ddd)})
+                        d = {}
+                        subjectSelected.clear()
+                        for result in arr:
+                            ddd = []
+                            subjectSelected.append(result.get('sub'))
+                            for result1 in result.get('subb'):
+                                ddd.append(result1.get('grade'))
+                            # print(ddd)
+                            d.update({result.get('sub'): pd.Series(ddd)})
 
-                    df = pd.DataFrame(d)
-                    gradeFromDBQQ.append(df)
-                    # print("--- df ---")
-                    # print(type(df))
-                    # print(df)
-                    # print(gradeData())
-                    # print("--- subjectSelected ---")
-                    # print(type(request.session['name'].get('gradeFromDBQQ')))
-                    # print(request.session['name'].get('gradeFromDBQQ'))
-                    return HttpResponseRedirect('/selectYearKmean/selectSubject/showGraphKmean')
-
+                        df = pd.DataFrame(d)
+                        gradeFromDBQQ.append(df)
+                        # print("--- df ---")
+                        # print(type(df))
+                        # print(df)
+                        # print(gradeData())
+                        # print("--- subjectSelected ---")
+                        # print(type(request.session['name'].get('gradeFromDBQQ')))
+                        # print(request.session['name'].get('gradeFromDBQQ'))
+                        return HttpResponseRedirect('/selectYearKmean/selectSubject/showGraphKmean')
+                        # else:
+                            # print('--- ifCheck ---')
+                            # print(ifCheck)
+                            # print('--- ifCheckSelf ---')
+                            # print(ifCheckSelf)
+                            # return render(request, 'showSubject.html', subb)
+                    else:
+                        ifCheck.append(checked.__len__()+1)
+                        HttpResponseRedirect('/selectYearKmean/selectSubject')
+                # if checked != []:
+                #     ifCheck.append(checked.__len__()+1)
                 return render(request, 'showSubject.html', subb)
             else:
                 return HttpResponseRedirect('/Home/')
@@ -777,6 +807,11 @@ class page():
             if request.session['name'].get('userType') == 'lecturer':            
                 # if 'name' in request.session:
                 selectYearKmeann.clear()
+                ifCheck.clear()
+                ifCheckYearKmeanText = ''
+                if ifCheckYearKmean.__len__() != 0:
+                    ifCheckYearKmeanText = 'chooseOne'
+                ifCheckYearKmean.clear()
                 yr = ['2555', '2556', '2557', '2558', '2559', '2560', '2561']
                 # for result in yr:
                 #     if request.POST.get(result) is not None:
@@ -786,11 +821,13 @@ class page():
                     selectYearKmeann.append(request.POST.get('yearrr'))
 
                 if selectYearKmeann != []:
+                    ifCheckYearKmean.append('Not')
                     return HttpResponseRedirect('/selectYearKmean/selectSubject')
 
                 subb = {
                     'username': request.session['name'].get('usrname'),
                     # 'username': "Nawat"
+                    'ifCheckYearKmeanText': ifCheckYearKmeanText
                 }
                 # print(selectYearKmeann)
                 return render(request, 'chooseYear_kmean.html', subb)
@@ -1456,6 +1493,8 @@ class page():
                     # print(resultPredict)
 
                 resultPredictChar = ''
+                if resultPredict >= 0 and resultPredict <= 0.74:
+                    resultPredictChar = 'F'
                 if resultPredict >= 1 and resultPredict <= 1.24:
                     resultPredictChar = 'D'
                 if resultPredict >= 1.25 and resultPredict <= 1.74:

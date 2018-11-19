@@ -112,12 +112,12 @@
                         </div>
                         <div class="form-group">
                             <p>Firstname</p>
-                            <input type="text" pattern="[A-Z,a-z]{1,30}" size=4 title="please fill only characters 30 char" class="form-control" name="inputFirstName" id="inputFirstName" placeholder="Enter your Firstname" required/>
+                            <input type="text" pattern="[A-Z,a-z,ก-ฮ]{1,30}" size=4 title="please fill lower 30 characters" class="form-control" name="inputFirstName" id="inputFirstName" placeholder="Enter your Firstname" required/>
                         </div>
                         <p>Lastname</p>
                         <div class="form-group">
                             
-                            <input type="text" pattern="[A-Z,a-z]{1,50}" title="please fill only characters 50 char" class="form-control" name="inputLastName" id="inputLastName" placeholder="Enter your Lastname" required/>
+                            <input type="text" pattern="[A-Z,a-z,ก-ฮ]{1,50}" title="please fill lower 50 characters" class="form-control" name="inputLastName" id="inputLastName" placeholder="Enter your Lastname" required/>
                         </div> 
 
                         <p>Student ID</p>
@@ -160,9 +160,9 @@
                         </div>
                         <diV class="form-group">
                             Department
-                            <select name="Department" id="Department" class="form-control" required/>
+                            <select name="Department" id="Department" class="form-control" required>
                                 <option value="Information Technology">Information Technology</option>
-                                <option value="Computer Science">Computer Science</option>
+                                {% comment %} <option value="Computer Science">Computer Science</option> {% endcomment %}
                             </select>
                         </diV>
 
